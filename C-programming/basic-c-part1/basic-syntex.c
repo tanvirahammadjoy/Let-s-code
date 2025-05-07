@@ -2,6 +2,10 @@
 
 int main() {
     printf("Hello, World!\n");
+    int a = 10, b = 20;
+    int  sum = a + b;
+    // printf("The sum of %d and %d is %d\n", a, b, sum);
+    printf("Sum is: %d\n", sum);
     return 0;
 }
 
