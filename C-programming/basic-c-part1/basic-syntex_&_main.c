@@ -6,6 +6,7 @@ int main() {
     int  sum = a + b;
     // printf("The sum of %d and %d is %d\n", a, b, sum);
     printf("Sum is: %d\n", sum);
+    printf("i am code block");
     return 0;
 }
 
