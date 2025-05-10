@@ -1,4 +1,4 @@
-// data types in C programming
+// header files for different data types in C programming
 #include <stdio.h>
 #include <limits.h>
 #include <float.h>
