@@ -1,5 +1,7 @@
 // This shows how to store a function inside a pointer, and call it.
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
 
 // Function to be called
 int add(int a, int b) {
@@ -29,8 +31,8 @@ int power(int a, int b) {
     }
     return result;
 }
-int factorial(int a) {
-    if (a < 0) {
+int factorial(int a, int b) {
+    if (a < 0 || b < 0) {
         printf("Error: Factorial of negative number\n");
         return 0;
     }
@@ -40,14 +42,14 @@ int factorial(int a) {
     }
     return result;
 }
-int square(int a) {
+int square(int a, int b) {
     return a * a;
 }
-int cube(int a) {
+int cube(int a, int b) {
     return a * a * a;
 }
-int square_root(int a) {
-    if (a < 0) {
+int square_root(int a, int b) {
+    if (a < 0 || b < 0) {
         printf("Error: Square root of negative number\n");
         return 0;
     }
@@ -57,177 +59,181 @@ int square_root(int a) {
     }
     return result - 1;
 }
-int cube_root(int a) {
+int cube_root(int a, int b) {
     int result = 1;
     while (result * result * result <= a) {
         result++;
     }
     return result - 1;
 }
-int absolute(int a) {
+int absolute(int a, int b) {
     return (a < 0) ? -a : a;
 }
-int logarithm(int a) {
-    if (a <= 0) {
+int logarithm(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 10;
+        a /= b;
         result++;
     }
     return result;
 }
-int sine(int a) {
+int sine(int a, int b) {
     return (int)(sin(a * 3.14159 / 180) * 1000);
 }
-int cosine(int a) {
+int cosine(int a, int b) {
     return (int)(cos(a * 3.14159 / 180) * 1000);
 }
-int tangent(int a) {
+int tangent(int a, int b) {
     return (int)(tan(a * 3.14159 / 180) * 1000);
 }
-int cotangent(int a) {
+int cotangent(int a, int b) {
     return (int)(1.0 / tan(a * 3.14159 / 180) * 1000);
 }
-int secant(int a) {
+int secant(int a, int b) {
     return (int)(1.0 / cos(a * 3.14159 / 180) * 1000);
 }
-int cosecant(int a) {
+int cosecant(int a, int b) {
     return (int)(1.0 / sin(a * 3.14159 / 180) * 1000);
 }
-int exponential(int a) {
+int exponential(int a, int b) {
+    if (a < 0 || b < 0) {
+        printf("Error: Exponential of negative number\n");
+        return 0;
+    }
     return (int)(exp(a) * 1000);
 }
-int logarithm_base_2(int a) {
-    if (a <= 0) {
+int logarithm_base_2(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 2 of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_10(int a) {
-    if (a <= 0) {
+int logarithm_base_10(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 10 of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 10;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_e(int a) {
-    if (a <= 0) {
+int logarithm_base_e(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base e of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_2_e(int a) {
-    if (a <= 0) {
+int logarithm_base_2_e(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 2 e of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_10_e(int a) {
-    if (a <= 0) {
+int logarithm_base_10_e(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 10 e of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_2_10(int a) {
-    if (a <= 0) {
+int logarithm_base_2_10(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 2 10 of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 10;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_10_2(int a) {
-    if (a <= 0) {
+int logarithm_base_10_2(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 10 2 of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_2_10_e(int a) {
-    if (a <= 0) {
+int logarithm_base_2_10_e(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 2 10 e of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_10_2_e(int a) {
-    if (a <= 0) {
+int logarithm_base_10_2_e(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 10 2 e of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_2_10_e_2(int a) {
-    if (a <= 0) {
+int logarithm_base_2_10_e_2(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 2 10 e 2 of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
 }
-int logarithm_base_10_2_e_2(int a) {
-    if (a <= 0) {
+int logarithm_base_10_2_e_2(int a, int b) {
+    if (a <= 0 || b <= 0) {
         printf("Error: Logarithm base 10 2 e 2 of non-positive number\n");
         return 0;
     }
     int result = 0;
     while (a > 1) {
-        a /= 2.71828;
+        a /= b;
         result++;
     }
     return result;
@@ -273,9 +279,68 @@ int main() {
     
     operation = absolute;
     printf("Absolute: %d\n", operation(-5, 0));
+
+    operation = logarithm;
+    printf("Logarithm: %d\n", operation(100, 10));
+
+    operation = sine;
+    printf("Sine: %d\n", operation(30, 0));
+
+    operation = cosine;
+    printf("Cosine: %d\n", operation(60, 0));
+
+    operation = tangent;
+    printf("Tangent: %d\n", operation(45, 0));
+
+    operation = cotangent;
+    printf("Cotangent: %d\n", operation(45, 0));
+
+    operation = secant;
+    printf("Secant: %d\n", operation(60, 0));
+
+    operation = cosecant;
+    printf("Cosecant: %d\n", operation(30, 0));
+
+    operation = exponential;
+    printf("Exponential: %d\n", operation(2, 0));
+
+    operation = logarithm_base_2;
+    printf("Logarithm base 2: %d\n", operation(8, 2));
+
+    operation = logarithm_base_10;
+    printf("Logarithm base 10: %d\n", operation(100, 10));
+
+    operation = logarithm_base_e;
+    printf("Logarithm base e: %d\n", operation(2, 0));
+
+    operation = logarithm_base_2_e;
+    printf("Logarithm base 2 e: %d\n", operation(2, 0));
+
+    operation = logarithm_base_10_e;
+    printf("Logarithm base 10 e: %d\n", operation(2, 0));
+
+    operation = logarithm_base_2_10;
+    printf("Logarithm base 2 10: %d\n", operation(100, 10));
+
+    operation = logarithm_base_10_2;
+    printf("Logarithm base 10 2: %d\n", operation(100, 10));
+
+    operation = logarithm_base_2_10_e;
+    printf("Logarithm base 2 10 e: %d\n", operation(100, 10));
+
+    operation = logarithm_base_10_2_e;
+    printf("Logarithm base 10 2 e: %d\n", operation(100, 10));
+
+    operation = logarithm_base_2_10_e_2;
+    printf("Logarithm base 2 10 e 2: %d\n", operation(100, 10));    
+
+    operation = logarithm_base_10_2_e_2;
+    printf("Logarithm base 10 2 e 2: %d\n", operation(100, 10));
+    printf((" \n end line \n"));
     
     return 0;
 }
+
 // Output:
 // Addition: 8
 // Subtraction: 2
