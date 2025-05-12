@@ -63,11 +63,14 @@ char f()
 }
 // 7. Wide Character Type
 //    - wchar_t: Wide character type, used for representing larger character sets (e.g., Unicode).
+#include <wchar.h>
+#include <locale.h>
 wchar_t g()
 {
+    setlocale(LC_ALL, ""); // Set the user's locale (important!)
     wchar_t wch = L'あ'; // Wide character variable
     printf("Wide Character: %lc\n", wch);
-    return 0;
+    return wch;
 }
 // 8. Complex Number Type
 //    - complex: Complex number type, used for representing complex numbers (requires <complex.h>).
@@ -76,7 +79,7 @@ complex double h()
 {
     complex double comp = 1.0 + 2.0 * I; // Complex number variable
     printf("Complex Number: %.2f + %.2fi\n", creal(comp), cimag(comp));
-    return 0;
+    return comp; // Return the complex number
 }
 // 9. Enumeration Type
 //    - enum: Enumeration type, used for defining a variable that can hold a set of predefined constants.
@@ -113,23 +116,24 @@ struct Person j()
     return person; // ✅ Return the struct, not 0
 }
 
-// // 11. Union Type
-// //     - union: Union type, used for defining a variable that can hold different types but only one at a time.
-// union Data {
-//     int i;
-//     float f;
-//     char str[20];
-// };
-// union Data k() {
-//     union Data data;
-//     data.i = 10; // Assigning integer value
-//     printf("Union: %d\n", data.i);
-//     data.f = 3.14; // Assigning float value
-//     printf("Union: %.2f\n", data.f);
-//     strcpy(data.str, "Hello"); // Assigning string value
-//     printf("Union: %s\n", data.str);
-//     return 0;
-// }
+// 11. Union Type
+//     - union: Union type, used for defining a variable that can hold different types but only one at a time.
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+union Data k() {
+    union Data data;
+    data.i = 10; // Assigning integer value
+    printf("Union: %d\n", data.i);
+    data.f = 3.14; // Assigning float value
+    printf("Union: %.2f\n", data.f);
+    strcpy(data.str, "Hello"); // Assigning string value
+    printf("Union: %s\n", data.str);
+    return data; // ✅ Return the union, not 0
+}
+
 // // 12. Typedef
 // //     - typedef: Used to create an alias for a data type.
 // typedef int Integer;
@@ -292,7 +296,7 @@ void test_data_types()
     h();
     i();
     j();
-    // k();
+    k();
     // l();
     // m();
     // n();
