@@ -79,11 +79,48 @@ void variables()
     // %lf for double, %c for char, %s for string,
 }
 
+#include <stdlib.h> // for malloc and free functions
 char* getString()
 {
+    int length = 20; // Length of the string
+    char* str = (char*)malloc(length * sizeof(char)); // Allocate memory for the string
+    if (str == NULL)
+    {
+        printf("Memory allocation failed\n");
+        return NULL; // Return NULL if memory allocation fails
+    }
+    // Initialize the string
+    for (int i = 0; i < length - 1; i++)
+    {
+        str[i] = 'A' + (i % 26); // Fill the string with characters A-Z
+    }
+    str[length - 1] = '\0'; // Null-terminate the string
+    // Return the string
+    // Note: In C, strings are represented as arrays of characters
+    // and are null-terminated, so we need to allocate memory for the string
+    // and return a pointer to the first character of the string.
+    // The caller is responsible for freeing the allocated memory.
+    // The caller should free the memory allocated for the string
+    // when it is no longer needed to avoid memory leaks.
+    // The caller should also check if the returned pointer is NULL
+    // before using it to avoid dereferencing a NULL pointer.
+
     // This function returns a string
     // Note: In C, strings are represented as arrays of characters
-    return "Hello, World!";
+    return str; // Return the pointer to the string
+}
+
+char character()
+{
+    char ch = 'A'; // Character variable
+    // char str1 = "ab"; // it will give a warning in the output: character constant too long for its type
+    char str[] = "Hello"; // String variable
+    char* ptr = &ch;
+    printf("Character1: %c\n", ch);
+    // printf("Character2: %d\n", str1);
+    printf("String: %s\n", str);
+    printf("Pointer: %p\n", ptr);
+    return ch;     // Return the character
 }
 
 int main()
@@ -93,6 +130,11 @@ int main()
     // Call the getString function
     char* str = getString();
     printf("String from function: %s\n", str);
+    // Free the allocated memory for the string
+    free(str);
+    // Call the character function
+    char ch = character();
+    printf("Character from function: %c\n", ch);
     // Example usage of different data types
     // Integer, float, char, double, string, and boolean variables
     // Note: C does not have a built-in boolean type, but we can use int (0 for false, non-zero for true)
@@ -118,6 +160,7 @@ int main()
 // Do I just want to print or update something, and don't need to return anything?  => 	Use void 
 // Do I want to return a true / false result ? Use bool from<stdbool.h> Do I want to return an array or string?  =>  Use pointer types like char*
 // Do I want to return a structure?  =>  Use struct type
+
 // Do I want to return a pointer?  =>  Use the correct pointer type: int*, float*, char*, etc.
 // Do I want to return a function pointer?  =>  Use the correct function pointer type: int (*)(int, int), etc.
 // Do I want to return a complex number?  =>  Use complex type from<complex.h>
