@@ -38,7 +38,11 @@ Assemble the file:
 nasm -f elf32 hello.asm -o hello.o
 
 Link it:
-ld -m elf_i386 -s -o hello hello.o
+ld -m elf_i386 -s -o hello hello.o // for 32 bit
+ld -m elf_x86_64 -s -o hello hello.o // for 64 bit
+
+or for refarenc
+Supported emulations: elf_x86_64 elf32_x86_64 elf_i386 elf_iamcu i386pep i386pe
 
 ✅ You now have an executable called hello.
 Run it:

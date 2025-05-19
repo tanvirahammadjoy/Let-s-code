@@ -1,5 +1,5 @@
 section .data
-    msg db "Hello, world!", 0xA
+    msg db "Hello, world from assembly!", 0xA
     len equ $ - msg
 
 section .text
