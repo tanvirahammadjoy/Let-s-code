@@ -1,4 +1,4 @@
-Since you're using Kali Linux, you're already in a great environment for working with low-level languages like Assembly (x86/x86_64).
+# Since you're using Kali Linux, you're already in a great environment for working with low-level languages like Assembly (x86/x86_64)
 
 Let’s set up everything step by step:
 
@@ -6,9 +6,7 @@ Let’s set up everything step by step:
 You'll mainly need:
 
 nasm → Netwide Assembler
-
 ld → linker (usually pre-installed with binutils)
-
 gdb → GNU Debugger (for debugging)
 
 (Optional) gcc → for linking or combining with C
