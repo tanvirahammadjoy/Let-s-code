@@ -1,9 +1,14 @@
+; Syntax of Assembly Language Statements
+; Assembly language statements are entered one statement per line. Each statement follows the following format −
+; [label]   mnemonic   [operands]   [;comment]
+; This program displays a message on screen it is an comment
+
 section .data
     msg db 'Hello, world my name is Shubham!', 0
 
+
 section .text
     global _start
-
 _start:
     mov edx, 33         ; length of the message
     mov ecx, msg        ; pointer to message
