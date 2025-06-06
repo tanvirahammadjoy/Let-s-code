@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/tanbir/Desktop/Let-s-code/C-programming/part1_basic_c",
-      "program": "/home/tanbir/Desktop/Let-s-code/C-programming/part1_basic_c/build/Debug/outDebug",
+      "cwd": "/home/tanbir/Desktop/Let-s-code/C-programming/part4_c_compilation",
+      "program": "/home/tanbir/Desktop/Let-s-code/C-programming/part4_c_compilation/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
