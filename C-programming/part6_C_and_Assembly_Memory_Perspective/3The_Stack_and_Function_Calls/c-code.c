@@ -26,6 +26,12 @@ void foo(int x)
 
 int main()
 {
+    // how to know the type of foo function?
+    printf("Address of main function: %p\n", (void *)main);
+    printf("Address of function foo: %p\n", (void *)foo);
+    printf("Address of function bar: %p\n", (void *)bar);
+    printf("Calling function foo with argument 10...\n");
+    // The stack frame for main is created first.
     foo(10);
     // The addresses of the local variables and function calls are not printed,
     // but you can visualize the stack frame structure.
