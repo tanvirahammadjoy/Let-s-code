@@ -14,9 +14,9 @@ int main()
     int *heap_var = malloc(4); // On Heap
     *heap_var = 5;
 
+    printf("&global_var: %p\n", &global_var);
     printf("&local_var: %p\n", &local_var);
     printf(" heap_var: %p\n", heap_var);
-    printf("&global_var: %p\n", &global_var);
 
     free(heap_var);
 }
