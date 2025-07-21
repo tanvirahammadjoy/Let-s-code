@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=My GTK App
+Exec=/home/desktop/let-s-code/cpp-programming/basic-syntex/myapp
+Terminal=false
+Categories=Utility;
