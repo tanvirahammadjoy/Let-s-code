@@ -2,13 +2,87 @@
 #include <iostream>
 using namespace std;
 
-// let's write a simple C++ program
+// variable declaration
+int a = 10;
+int b = 20;
 
+// function declaration
+int add(int x, int y) {
+    return x + y;
+}
 
-int main()
-{
-    cout << "Hello World!" << endl;
-    cout << "I am learning C++" << endl;
+// class declaration
+class Person {
+public:
+    string name;
+    int age;
+    void sayHello() {
+        cout << "Hello, my name is " << name << " and I am " << age << " years old." << endl;
+    }
+};
+
+// namespace declaration
+namespace MyNamespace {
+    int x = 10;
+    int y = 20;
+}
+
+// function prototype
+void greet();
+
+// function definition
+void greet() {
+    cout << "Welcome to C++ programming!" << endl;
+}
+// function overloading
+int multiply(int x, int y) {
+    return x * y;
+}
+double multiply(double x, double y) {
+    return x * y;
+}
+// inline function
+inline int square(int x) {
+    return x * x;
+}
+// constant declaration
+const double PI = 3.14159;
+
+// global variable
+int globalVar = 100;
+
+// static variable
+static int staticVar = 200;
+// extern variable
+extern int externVar;
+
+#include <string>
+using namespace std;
+
+// function to demonstrate basic syntax
+void demonstrateSyntax() {
+    cout << "Demonstrating basic C++ syntax..." << endl;
+    cout << "Variable a: " << a << endl;
+    cout << "Variable b: " << b << endl;
+    cout << "Sum of a and b: " << add(a, b) << endl;
+    cout << "PI: " << PI << endl;
+    cout << "Global variable: " << globalVar << endl;
+    cout << "Static variable: " << staticVar << endl;
+    cout << "Namespace MyNamespace x: " << MyNamespace::x << endl;
+    cout << "Namespace MyNamespace y: " << MyNamespace::y << endl;
+    greet();
+    cout << "Square of 5: " << square(5) << endl;
+    cout << "Multiplication of 3 and 4: " << multiply(3, 4) << endl;
+    cout << "Multiplication of 2.5 and 4.5: " << multiply(2.5, 4.5) << endl;
+    Person person;
+    person.name = "Alice";
+    person.age = 30;
+    person.sayHello();
+}
+
+// main function
+int main() {
+    demonstrateSyntax();
     return 0;
 }
 
