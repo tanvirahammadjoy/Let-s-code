@@ -15,9 +15,9 @@ function App() {
 
       <nav className="Nav">
         <ul>
-          <li><NavLink to="/" className="Home"><a href="/">Home</a></NavLink></li>
-          <li><NavLink to="/about" className="About"><a href="/about">About</a></NavLink></li>
-          <li><NavLink to="/contact" className="Contact"><a href="/contact">Contact</a></NavLink></li>
+          <li><NavLink to="/" className="Home">Home</NavLink></li>
+          <li><NavLink to="/about" className="About">About</NavLink></li>
+          <li><NavLink to="/contact" className="Contact">Contact</NavLink></li>
         </ul>
       </nav>
 
