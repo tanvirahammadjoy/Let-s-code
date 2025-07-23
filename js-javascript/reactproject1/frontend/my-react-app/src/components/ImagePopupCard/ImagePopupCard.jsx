@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 
-const ImagePopupCard = () => {
+/**
+ * A React component that displays an image with a title and description
+ * as a gallery card. When the card is clicked, a popup modal is displayed
+ * with the same image and text. The modal can be closed by clicking anywhere
+ * outside the modal or by clicking the close button.
+ *
+ * Props:
+ * - image (object): {
+ *     url (string): The URL of the image
+ *     title (string): The title of the image
+ *     description (string): The description of the image
+ *   }
+ */
+const ImagePopupCard = ( { image }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const image = {
-    url: "https://source.unsplash.com/random/800x600",
-    title: "Beautiful Landscape",
-    description: "This is a stunning view of nature captured in golden hour.",
-  };
 
   return (
     <div className="relative">

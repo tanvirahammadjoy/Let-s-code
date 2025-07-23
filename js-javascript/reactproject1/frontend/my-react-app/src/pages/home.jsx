@@ -5,6 +5,7 @@ import "./home.css";
 // import viteLogo from '/vite.svg';
 import VideoCard from "../components/Video-card/Video-card";
 // import Popupcard from "../components/Popup-card/Popup-card";
+import ImagePopupCard from "../components/ImagePopupCard/ImagePopupCard";
 
 function Home() {
   // const [count, setCount] = useState(0);
@@ -57,6 +58,14 @@ function Home() {
               handlePopupClose();
             }}
           /> */}
+          <ImagePopupCard
+            image={{
+              url: "https://images.unsplash.com/photo-1695456166318-b377c9590723?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              title: "Beautiful Landscape",
+              description:
+                "This is a stunning view of nature captured in golden hour.",
+            }}
+          />
         </div>
       </div>
       {/* styling for the home page */}
