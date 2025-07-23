@@ -8,22 +8,6 @@ import VideoCard from "../components/Video-card/Video-card";
 import ImagePopupCard from "../components/ImagePopupCard/ImagePopupCard";
 
 function Home() {
-  // const [count, setCount] = useState(0);
-  // Function to handle the close event of the popup
-  //   const handlePopupClose = () => {
-  //     // Logic to handle popup close, e.g., update state or perform an action
-  //     // For demonstration, we can log a message to the console
-  //     // This can be replaced with actual logic to close the popup
-  //     // For example, if using state to control visibility, you can set it to false
-  //     // setPopupVisible(false);
-  //     // For now, we will just log a message
-  //     // This can be replaced with actual logic to close the popup
-  //     // For example, if using state to control visibility, you can set it to false
-  //     // setPopupVisible(false);
-
-  //     // write logic to close the popup
-  //     console.log("Popup closed");
-  //   };
   return (
     <>
       <div className="home">
@@ -58,6 +42,22 @@ function Home() {
               handlePopupClose();
             }}
           /> */}
+          <ImagePopupCard
+            image={{
+              url: "https://images.unsplash.com/photo-1695456166318-b377c9590723?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              title: "Beautiful Landscape",
+              description:
+                "This is a stunning view of nature captured in golden hour.",
+            }}
+          />
+          <ImagePopupCard
+            image={{
+              url: "https://images.unsplash.com/photo-1695456166318-b377c9590723?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              title: "Beautiful Landscape",
+              description:
+                "This is a stunning view of nature captured in golden hour.",
+            }}
+          />
           <ImagePopupCard
             image={{
               url: "https://images.unsplash.com/photo-1695456166318-b377c9590723?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
