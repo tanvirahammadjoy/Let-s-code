@@ -12,10 +12,10 @@ function Home() {
     <>
       <div className="home">
         <div>
-          <h1>Home Page</h1>
+          <h1 className="text-3xl font-bold mb-4">Home Page</h1>
         </div>
         <div className="video-list">
-          <VideoCard
+          {/* <VideoCard
             title="Sample Video"
             description="This is a sample video."
             thumbnail="https://images.unsplash.com/photo-1682687220923-c58b9a4592ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -34,7 +34,7 @@ function Home() {
             title="Sample Video"
             description="This is a sample video."
             thumbnail="https://images.unsplash.com/photo-1752774713655-10e8fd7c50df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
+          /> */}
           {/* <Popupcard
             title="Sample Popup"
             description="This is a sample popup description."
@@ -42,6 +42,14 @@ function Home() {
               handlePopupClose();
             }}
           /> */}
+          <ImagePopupCard
+            image={{
+              url: "https://images.unsplash.com/photo-1695456166318-b377c9590723?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              title: "Beautiful Landscape",
+              description:
+                "This is a stunning view of nature captured in golden hour.",
+            }}
+          />
           <ImagePopupCard
             image={{
               url: "https://images.unsplash.com/photo-1695456166318-b377c9590723?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
