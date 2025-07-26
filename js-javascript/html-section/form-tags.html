@@ -1,0 +1,81 @@
+<!-- let's explore all form tags available in HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tags Example</title>
+</head>
+<body>
+    <form action="#">
+        <h1>Form Tags Example</h1>
+        <div>
+            <label for="search">Search Input:</label>
+            <input type="search" id="search" name="search" placeholder="Search...">
+        </div>
+        <div>
+            <label for="textarea">Textarea:</label>
+            <textarea id="textarea" name="textarea" rows="4" cols="50" placeholder="Enter your message here"></textarea>
+        </div>
+        <div>
+            <label for="text">Text Input:</label>
+            <input type="text" id="text" name="text" placeholder="Enter text here">
+        </div>
+        <div>
+            <label for="password">Password Input:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+        </div>
+
+        <div>
+            <label for="email">Email Input:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email">
+        </div>
+
+        <div>
+            <label for="number">Number Input:</label>
+            <input type="number" id="number" name="number" min="1" max="10">
+        </div>
+
+        <div>
+            <label for="date">Date Input:</label>
+            <input type="date" id="date" name="date">
+        </div>
+
+        <div>
+            <label for="color">Color Input:</label>
+            <input type="color" id="color" name="color">
+        </div>
+
+        <div>
+            <label for="checkbox">Checkbox Input:</label>
+        <input type="checkbox" id="checkbox" name="checkbox">
+        </div>
+
+        <div>
+            <label for="file">File Input:</label>
+            <input type="file" id="file" name="file">
+        </div>
+
+        <div>
+            <label for="radio">Radio Button:</label>
+            <input type="radio" id="radio1" name="radio" value="option1">
+            <label for="radio1">Option 1</label>
+            <input type="radio" id="radio2" name="radio" value="option2">
+            <label for="radio2">Option 2</label>
+        </div>
+
+        <div>
+            <label for="select">Select Dropdown:</label>
+            <select id="select" name="select">
+                <option value="">Choose an option</option>
+                <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
+        </div>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
