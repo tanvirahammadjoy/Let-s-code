@@ -4,40 +4,161 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Table Tamplate</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 20px;
+				background-color: #f4f4f4;
+				display: flex;
+				align-items: center;
+				justify-self: center;
+				width: 100%;
+				height: 100vh;
+			}
+			table {
+				display: flex;
+			}
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			th,
+			td {
+				padding: 5px 20px;
+			}
+		</style>
 	</head>
 	<body>
 		<table>
 			<tr>
-				<th>&nbsp;</th>
-				<td>Knocky</td>
-				<td>Flor</td>
-				<td>Ella</td>
-				<td>Juan</td>
+				<th colspan="2">&nbsp;</th>
+				<th>Name</th>
+				<th>Mass (1024kg)</th>
+				<th>Diameter (km)</th>
+				<th>Density (kg/m3)</th>
+				<th>Gravity (m/s2)</th>
+				<th>Length of day (hours)</th>
+				<th>Distance from Sun (106km)</th>
+				<th>Mean temperature (°C)</th>
+				<th>Number of moons</th>
+				<th>Notes</th>
 			</tr>
 			<tr>
-				<th>Knocky</th>
-				<td>Breed</td>
-				<td>Jack Russell</td>
-				<td>Poodle</td>
-				<td>Streetdog</td>
+                <td rowspan="4" colspan="2">Terrestrial planets</td>
+				<th>Mercury</th>
+				<td>0.330</td>
+				<td>4,879</td>
+				<td>Cocker Spaniel</td>
+				<td>Cocker Spaniel</td>
+				<td>Cocker Spaniel</td>
+				<td>Cocker Spaniel</td>
+				<td>Cocker Spaniel</td>
+				<td>Cocker Spaniel</td>
 				<td>Cocker Spaniel</td>
 			</tr>
-			<tr>
-				<th>Flor</th>
-				<td>Age</td>
-				<td>16</td>
-				<td>9</td>
-				<td>10</td>
-				<td>5</td>
-			</tr>
-			<tr>
-				<th>Ella</th>
-				<td>Owner</td>
-				<td>Mother-in-law</td>
-				<td>Me</td>
-				<td>Me</td>
-				<td>Sister-in-law</td>
-			</tr>
+            <tr>
+                <th>Venus</th>
+                <td>4.87</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th>Earth</th>
+                <td>5.97</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th>Mars</th>
+                <td>0.642</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th rowspan="4">Jovian planets</th>
+                <th rowspan="2">Gas giants</th>
+                <th>Jupiter</th>
+                <td>1898</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th>Saturn</th>
+                <td>568</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Ice giants</th>
+                <th>Uranus</th>
+                <td>86.8</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th>Neptune</th>
+                <td>102</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
+            <tr>
+                <th colspan="2">Dwarf planets</th>
+                <th>Pluto</th>
+                <td>0.0146</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+                <td>Streetdog</td>
+            </tr>
 		</table>
 	</body>
 </html>
