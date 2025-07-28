@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS_Selector_class</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- DOM (Document Object Model) Structure for CSS Selector Example -->
     <!-- 🧱 DOM (Document Object Model)
     🔹 Purpose:
@@ -25,24 +25,26 @@
     document.title = "New Title", document.URL = "https://example.com", document.location = "https://example.com", etc.
     document.documentElement, document.body, document.head, document.images, document.links, document.forms, document.scripts, etc. -->
     <div id="parent1" class="parent1">
-        <p class="sibling1 child1">This is a paragraph inside a box.</p>
-        <p class="sibling2 child2">This is another paragraph inside the box.</p>
-        <div class="sibling3 child3">
-            <p class="disendant1 son-child1">This is a paragraph inside the child div.</p>
-        </div>
+      <p class="sibling1 child1">This is a paragraph inside a box.</p>
+      <p class="sibling2 child2">This is another paragraph inside the box.</p>
+      <div class="sibling3 child3">
+        <p class="disendant1 son-child1">
+          This is a paragraph inside the child div.
+        </p>
+      </div>
     </div>
     <script>
-        document.getElementById('parent1').style.color = 'red';
-        const parent1 = document.querySelector('.parent1');
-        const child1 = document.querySelector('.child1');
-        const child2 = document.querySelector('.child2');
-        const child3 = document.querySelector('.child3');
-        const disendant = document.querySelector('.disendant1');
-        const disendentto = document.querySelector('.disendentto');
+      document.getElementById("parent1").style.color = "red"
+      const parent1 = document.querySelector(".parent1")
+      const child1 = document.querySelector(".child1")
+      const child2 = document.querySelector(".child2")
+      const child3 = document.querySelector(".child3")
+      const disendant = document.querySelector(".disendant1")
+      const disendentto = document.querySelector(".disendentto")
     </script>
 
     <!-- BOM (Browser Object Model) Structure for CSS Selector Example -->
-     <!-- 🌐 BOM (Browser Object Model)
+    <!-- 🌐 BOM (Browser Object Model)
     🔹 Purpose:
     Represents the browser environment outside the webpage. It allows JavaScript to interact with the browser (not the HTML directly).
     🔹 What it includes:
@@ -68,20 +70,23 @@
     screen.height -->
 
     <div id="parent2" class="parent2">
-        <p class="sibling4 child4">This is a paragraph inside a box.</p>
-        <p class="sibling5 child5">This is another paragraph inside the box.</p>
-        <div class="sibling6 child6">
-            <p class="disendant2 son-child2"> <span class="span disendentto">i am span</span>This is a paragraph inside the child div.</p>
-        </div>
+      <p class="sibling4 child4">This is a paragraph inside a box.</p>
+      <p class="sibling5 child5">This is another paragraph inside the box.</p>
+      <div class="sibling6 child6">
+        <p class="disendant2 son-child2">
+          <span class="span disendentto">i am span</span>This is a paragraph
+          inside the child div.
+        </p>
+      </div>
     </div>
     <script>
-        document.getElementById('parent2').style.color = 'blue';
-        const parent2 = document.querySelector('.parent2');
-        const child4 = document.querySelector('.child4');
-        const child5 = document.querySelector('.child5');
-        const child6 = document.querySelector('.child6');
-        const disendant1 = document.querySelector('.disendant2');
-        const disendentto2 = document.querySelector('.disendentto');
+      document.getElementById("parent2").style.color = "blue"
+      const parent2 = document.querySelector(".parent2")
+      const child4 = document.querySelector(".child4")
+      const child5 = document.querySelector(".child5")
+      const child6 = document.querySelector(".child6")
+      const disendant1 = document.querySelector(".disendant2")
+      const disendentto2 = document.querySelector(".disendentto")
     </script>
-</body>
-</html> 
+  </body>
+</html>

@@ -1,141 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1, h2, h3, h4 {
-            color: #333;
-        }
-        p {
-            line-height: 1.6;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        div {
-            background-color: #fff;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0.1);
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #333;
+      }
+      p {
+        line-height: 1.6;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      div {
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0.1);
+      }
 
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0.1);
-        }
-        form div {
-            margin-bottom: 15px;
-        }
-        form label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        form button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #0056b3;
-        }
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0.1);
+      }
+      form div {
+        margin-bottom: 15px;
+      }
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      form button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      form button:hover {
+        background-color: #0056b3;
+      }
     </style>
-</head>
-<body>
-   <div>
-       <h1>Welcome to My Web Page</h1>
-       <p>This is a simple HTML document to demonstrate the use of the div tag.</p>
-       <a href="https://www.example.com">Visit Example.com</a>
-   </div>
-   <div>
-       <h2>About This Page</h2>
-       <p>This page is structured using div tags to organize content.</p>
-   </div>
-   <div>
-       <h3>Contact Information</h3>
-       <p>Email: <a href="mailto:WVd2l@example.com">WVd2l@example.com</a></p>
-       <p>Phone: +1 (123) 456-7890</p>
-   </div>
-   <div>
-       <h4>Use Cases for Div Tags</h4>
-       <ul>
-           <li>Organizing content into sections</li>
-           <li>Styling groups of elements with CSS</li>
-           <li>Creating layouts for web pages</li>
-           <li>Grouping elements for JavaScript manipulation</li>
-       </ul>
-   </div>
-   <form action="#" method="post">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to My Web Page</h1>
+      <p>
+        This is a simple HTML document to demonstrate the use of the div tag.
+      </p>
+      <a href="https://www.example.com">Visit Example.com</a>
+    </div>
+    <div>
+      <h2>About This Page</h2>
+      <p>This page is structured using div tags to organize content.</p>
+    </div>
+    <div>
+      <h3>Contact Information</h3>
+      <p>Email: <a href="mailto:WVd2l@example.com">WVd2l@example.com</a></p>
+      <p>Phone: +1 (123) 456-7890</p>
+    </div>
+    <div>
+      <h4>Use Cases for Div Tags</h4>
+      <ul>
+        <li>Organizing content into sections</li>
+        <li>Styling groups of elements with CSS</li>
+        <li>Creating layouts for web pages</li>
+        <li>Grouping elements for JavaScript manipulation</li>
+      </ul>
+    </div>
+    <form action="#" method="post">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="layouts">
+      <h2>Layouts</h2>
+      <p>Explore different layout options using div tags.</p>
+      <ul>
+        <li>Flexbox for responsive designs</li>
+        <li>Grid layout for complex arrangements</li>
+        <li>CSS frameworks for quick styling</li>
+      </ul>
+      <p>Utilize these layout techniques to enhance your web designs.</p>
+      <div>
+        <h3>Flexbox Example</h3>
+        <p>Using Flexbox to create a responsive layout.</p>
+        <div style="display: flex; justify-content: space-between">
+          <div style="flex: 1; margin-right: 10px">Flex Item 1</div>
+          <div style="flex: 1">Flex Item 2</div>
         </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <h3>Grid Layout Example</h3>
+        <p>Creating a grid layout using CSS Grid.</p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+          ">
+          <div>Grid Item 1</div>
+          <div>Grid Item 2</div>
+          <div>Grid Item 3</div>
+          <div>Grid Item 4</div>
+          <div>Grid Item 5</div>
+          <div>Grid Item 6</div>
         </div>
-        <div>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit">Submit</button>
-   </form>
-   <div id="layouts">
-       <h2>Layouts</h2>
-       <p>Explore different layout options using div tags.</p>
-         <ul>
-              <li>Flexbox for responsive designs</li>
-              <li>Grid layout for complex arrangements</li>
-              <li>CSS frameworks for quick styling</li>
-         </ul>
-         <p>Utilize these layout techniques to enhance your web designs.</p>
-         <div>
-                <h3>Flexbox Example</h3>
-                <p>Using Flexbox to create a responsive layout.</p> 
-                <div style="display: flex; justify-content: space-between;">
-                    <div style="flex: 1; margin-right: 10px;">Flex Item 1</div>
-                    <div style="flex: 1;">Flex Item 2</div>
-                </div>
-         </div>
-         <div>
-                <h3>Grid Layout Example</h3>
-                <p>Creating a grid layout using CSS Grid.</p>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                    <div>Grid Item 1</div>
-                    <div>Grid Item 2</div>
-                    <div>Grid Item 3</div>
-                    <div>Grid Item 4</div>
-                    <div>Grid Item 5</div>
-                    <div>Grid Item 6</div>
-                </div>
-         </div>
-   </div>
-   <script>
-       console.log("Div tag example loaded.");
-   </script>
-</body>
+      </div>
+    </div>
+    <script>
+      console.log("Div tag example loaded.")
+    </script>
+  </body>
 </html>
