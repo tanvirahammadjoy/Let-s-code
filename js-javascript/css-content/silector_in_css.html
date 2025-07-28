@@ -1,195 +1,195 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Selectors Demo</title>
-    <style>
-      /* ===== 1. BASIC SELECTORS ===== */
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CSS Selectors Demo</title>
+		<style>
+			/* ===== 1. BASIC SELECTORS ===== */
 
-      /* Universal selector */
-      * {
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
+			/* Universal selector */
+			* {
+				box-sizing: border-box;
+				font-family: Arial, sans-serif;
+			}
 
-      /* Type selector */
-      p {
-        color: #333;
-      }
+			/* Type selector */
+			p {
+				color: #333;
+			}
 
-      /* Class selector */
-      .highlight {
-        background-color: yellow;
-      }
+			/* Class selector */
+			.highlight {
+				background-color: yellow;
+			}
 
-      /* ID selector */
-      #main-title {
-        color: blue;
-        text-align: center;
-      }
+			/* ID selector */
+			#main-title {
+				color: blue;
+				text-align: center;
+			}
 
-      /* Group selector */
-      h2,
-      h3,
-      h4 {
-        color: darkgreen;
-      }
+			/* Group selector */
+			h2,
+			h3,
+			h4 {
+				color: darkgreen;
+			}
 
-      /* ===== 2. COMBINATOR SELECTORS ===== */
+			/* ===== 2. COMBINATOR SELECTORS ===== */
 
-      /* Descendant selector */
-      .box p {
-        font-style: italic;
-      }
+			/* Descendant selector */
+			.box p {
+				font-style: italic;
+			}
 
-      /* Child selector */
-      .list > li {
-        color: red;
-      }
+			/* Child selector */
+			.list > li {
+				color: red;
+			}
 
-      /* Adjacent sibling selector */
-      h2 + p {
-        font-weight: bold;
-      }
+			/* Adjacent sibling selector */
+			h2 + p {
+				font-weight: bold;
+			}
 
-      /* General sibling selector */
-      h3 ~ p {
-        color: gray;
-      }
+			/* General sibling selector */
+			h3 ~ p {
+				color: gray;
+			}
 
-      /* ===== 3. ATTRIBUTE SELECTORS ===== */
+			/* ===== 3. ATTRIBUTE SELECTORS ===== */
 
-      /* Exact match */
-      input[type="text"] {
-        border: 1px solid black;
-      }
+			/* Exact match */
+			input[type='text'] {
+				border: 1px solid black;
+			}
 
-      /* Attribute presence */
-      a[target] {
-        color: green;
-      }
+			/* Attribute presence */
+			a[target] {
+				color: green;
+			}
 
-      /* Value starts with */
-      a[href^="https"] {
-        text-decoration: underline;
-      }
+			/* Value starts with */
+			a[href^='https'] {
+				text-decoration: underline;
+			}
 
-      /* Value ends with */
-      img[src$=".jpg"] {
-        border: 3px solid orange;
-      }
+			/* Value ends with */
+			img[src$='.jpg'] {
+				border: 3px solid orange;
+			}
 
-      /* Value contains */
-      a[href*="login"] {
-        font-weight: bold;
-      }
+			/* Value contains */
+			a[href*='login'] {
+				font-weight: bold;
+			}
 
-      /* ===== 4. PSEUDO-CLASSES ===== */
+			/* ===== 4. PSEUDO-CLASSES ===== */
 
-      /* Hover, focus, active */
-      button:hover {
-        background-color: lightblue;
-      }
+			/* Hover, focus, active */
+			button:hover {
+				background-color: lightblue;
+			}
 
-      /* First and last child */
-      ul li:first-child {
-        font-weight: bold;
-      }
+			/* First and last child */
+			ul li:first-child {
+				font-weight: bold;
+			}
 
-      ul li:last-child {
-        font-style: italic;
-      }
+			ul li:last-child {
+				font-style: italic;
+			}
 
-      /* Nth child */
-      ul li:nth-child(odd) {
-        background-color: #f9f9f9;
-      }
+			/* Nth child */
+			ul li:nth-child(odd) {
+				background-color: #f9f9f9;
+			}
 
-      /* :not selector */
-      div:not(.special) {
-        border: 1px solid #ccc;
-      }
+			/* :not selector */
+			div:not(.special) {
+				border: 1px solid #ccc;
+			}
 
-      /* ===== 5. PSEUDO-ELEMENTS ===== */
+			/* ===== 5. PSEUDO-ELEMENTS ===== */
 
-      /* Before and after */
-      h3::before {
-        content: "🔹 ";
-      }
+			/* Before and after */
+			h3::before {
+				content: '🔹 ';
+			}
 
-      h3::after {
-        content: " 🔸";
-      }
+			h3::after {
+				content: ' 🔸';
+			}
 
-      /* First letter */
-      p::first-letter {
-        font-size: 150%;
-        color: red;
-      }
+			/* First letter */
+			p::first-letter {
+				font-size: 150%;
+				color: red;
+			}
 
-      /* First line */
-      p::first-line {
-        text-decoration: underline;
-      }
+			/* First line */
+			p::first-line {
+				text-decoration: underline;
+			}
 
-      /* ===== 6. LEVEL 4 SELECTORS ===== */
+			/* ===== 6. LEVEL 4 SELECTORS ===== */
 
-      /* :is() */
-      :is(h1, h2, h3) {
-        font-family: "Georgia", serif;
-      }
+			/* :is() */
+			:is(h1, h2, h3) {
+				font-family: 'Georgia', serif;
+			}
 
-      /* :where() – no specificity */
-      :where(.card, .panel) {
-        padding: 10px;
-        background: #eef;
-      }
-    </style>
-  </head>
-  <body>
-    <h1 id="main-title">CSS Selectors Example</h1>
+			/* :where() – no specificity */
+			:where(.card, .panel) {
+				padding: 10px;
+				background: #eef;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="main-title">CSS Selectors Example</h1>
 
-    <h2>Basic Selectors</h2>
-    <p>This is a normal paragraph.</p>
-    <p class="highlight">This is a highlighted paragraph.</p>
+		<h2>Basic Selectors</h2>
+		<p>This is a normal paragraph.</p>
+		<p class="highlight">This is a highlighted paragraph.</p>
 
-    <h2>Combinators</h2>
-    <div class="box">
-      <p>Inside a .box</p>
-    </div>
-    <ul class="list">
-      <li>First item</li>
-      <li>Second item</li>
-      <li>Third item</li>
-    </ul>
-    <h3>Sibling Demo</h3>
-    <p>This paragraph follows h3 and is styled.</p>
-    <p>Another sibling paragraph.</p>
+		<h2>Combinators</h2>
+		<div class="box">
+			<p>Inside a .box</p>
+		</div>
+		<ul class="list">
+			<li>First item</li>
+			<li>Second item</li>
+			<li>Third item</li>
+		</ul>
+		<h3>Sibling Demo</h3>
+		<p>This paragraph follows h3 and is styled.</p>
+		<p>Another sibling paragraph.</p>
 
-    <h2>Attribute Selectors</h2>
-    <input type="text" placeholder="Text input" />
-    <br /><br />
-    <a href="https://example.com" target="_blank" rel="noopener noreferrer"
-      >Secure Link</a
-    ><br />
-    <a href="login.html">Login Page</a><br />
-    <img src="photo.jpg" alt="Example Image" width="100" />
+		<h2>Attribute Selectors</h2>
+		<input type="text" placeholder="Text input" />
+		<br /><br />
+		<a href="https://example.com" target="_blank" rel="noopener noreferrer"
+			>Secure Link</a
+		><br />
+		<a href="login.html">Login Page</a><br />
+		<img src="photo.jpg" alt="Example Image" width="100" />
 
-    <h2>Pseudo-classes</h2>
-    <ul>
-      <li>First Child</li>
-      <li>Second</li>
-      <li>Third</li>
-      <li>Last Child</li>
-    </ul>
-    <button>Hover Me</button>
+		<h2>Pseudo-classes</h2>
+		<ul>
+			<li>First Child</li>
+			<li>Second</li>
+			<li>Third</li>
+			<li>Last Child</li>
+		</ul>
+		<button>Hover Me</button>
 
-    <h2>Pseudo-elements</h2>
-    <p>This paragraph will show styled first-letter and first-line.</p>
+		<h2>Pseudo-elements</h2>
+		<p>This paragraph will show styled first-letter and first-line.</p>
 
-    <h3 class="card">Heading with before/after</h3>
-    <div class="panel">Styled using :where()</div>
-    <div class="normal">Styled using :not()</div>
-  </body>
+		<h3 class="card">Heading with before/after</h3>
+		<div class="panel">Styled using :where()</div>
+		<div class="normal">Styled using :not()</div>
+	</body>
 </html>
