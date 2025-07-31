@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Navigation Bar Variation</title>
+		<link rel="stylesheet" href="styles.css" />
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: 'Roboto', sans-serif;
+				background-color: #f4f4f4;
+			}
+
+			.nav-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #cacaca;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				border-radius: 8px;
+				margin-bottom: 20px;
+			}
+
+			.nav1 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 0;
+				border-bottom: 2px solid #ccc;
+				background-color: #f8f8f8;
+				padding: 10px;
+			}
+
+			.nav1 ul {
+				list-style: none;
+				display: flex;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav1 li {
+				margin-right: 20px;
+			}
+
+			.nav1 a {
+				text-decoration: none;
+				color: #333;
+			}
+
+			.nav1 a:hover {
+				text-decoration: underline;
+			}
+
+            /* Underline text effect */
+			.nav1 a::after {
+				content: 'ABC';
+                display: block;
+                width: 0;
+                height: 2px;
+                background-color: #007bff;
+                transform: scaleX(0);
+                transition: transform 0.3s ease-in-out;
+                transform-origin: left;
+			}
+
+			.nav1 a:hover::after {
+                transform: scaleX(1);
+			}
+
+			.nav1 button {
+				padding: 8px 16px;
+				background-color: #007bff;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			.nav1 button:hover {
+				background-color: #0056b3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav-container">
+			<h2>Variation 1: Horizontal with underline effects</h2>
+			<nav class="nav1">
+				<div class="nav-logo">
+					<h1>LOGO</h1>
+				</div>
+				<div
+					class="nav-links"
+					style="display: flex; align-items: center; gap: 20px">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+					<button type="button">Login</button>
+				</div>
+			</nav>
+		</div>
+
+		<div class="nav-container">
+			<h2>Variation 2: Horizontal with hover effects</h2>
+			<nav class="nav2">
+				<div class="nav-logo">
+					<h1>LOGO</h1>
+				</div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<button type="button">Login</button>
+			</nav>
+		</div>
+
+		<div class="nav-container">
+			<h2>Variation 3: Horizontal with dropdown</h2>
+			<nav class="nav3">
+				<div class="nav-logo">
+					<h1>LOGO</h1>
+				</div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+					<li>
+						<a href="#">Dropdown</a>
+						<ul>
+							<li><a href="#">Dropdown Item 1</a></li>
+							<li><a href="#">Dropdown Item 2</a></li>
+							<li><a href="#">Dropdown Item 3</a></li>
+						</ul>
+					</li>
+				</ul>
+				<button type="button">Login</button>
+			</nav>
+		</div>
+
+		<div class="nav-container">
+			<h2>Variation 4: Vertical with dropdown</h2>
+			<nav class="nav4">
+				<div class="nav-logo">
+					<h1>LOGO</h1>
+				</div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<button type="button">Login</button>
+			</nav>
+		</div>
+
+		<div class="nav-container">
+			<h2>Variation 5: Vertical with hover effects</h2>
+			<nav class="nav5">
+				<div class="nav-logo">
+					<h1>LOGO</h1>
+				</div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="nav-container">
+			<h2>Variation 6: Vertical with underline effects</h2>
+			<nav class="nav6">
+				<div class="nav-logo">
+					<h1>LOGO</h1>
+				</div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>
