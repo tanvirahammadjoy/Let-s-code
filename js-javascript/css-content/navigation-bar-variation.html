@@ -59,20 +59,20 @@
 				text-decoration: underline;
 			}
 
-            /* Underline text effect */
+			/* Underline text effect */
 			.nav1 a::after {
 				content: 'ABC';
-                display: block;
-                width: 0;
-                height: 2px;
-                background-color: #007bff;
-                transform: scaleX(0);
-                transition: transform 0.3s ease-in-out;
-                transform-origin: left;
+				display: block;
+				width: 0;
+				height: 2px;
+				background-color: #007bff;
+				transform: scaleX(0);
+				transition: transform 0.3s ease-in-out;
+				transform-origin: left;
 			}
 
 			.nav1 a:hover::after {
-                transform: scaleX(1);
+				transform: scaleX(1);
 			}
 
 			.nav1 button {
@@ -86,6 +86,177 @@
 
 			.nav1 button:hover {
 				background-color: #0056b3;
+			}
+
+			.nav2 {
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 0;
+				background-color: #3575ff;
+				padding: 10px;
+				width: 300px;
+				color: #fff;
+			}
+
+			.nav2 ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav2 li {
+				margin-bottom: 10px;
+				cursor: pointer;
+				padding: 10px;
+			}
+
+			.nav2 li:hover {
+				text-decoration: underline;
+				background-color: #7cbcff;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				padding: 10px;
+				transition: 300ms ease-in-out;
+			}
+
+			.nav2 button {
+				padding: 8px 16px;
+				background-color: #0051a8;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				margin-left: 40px;
+				width: 200px;
+			}
+
+			.nav2 button:hover {
+				background-color: #83bfff;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			.nav2 a {
+				text-decoration: none;
+				color: #ffffff;
+			}
+
+			.nav2 a:hover {
+				text-decoration: underline;
+			}
+
+			/* Hover effect */
+			.nav2 a:hover {
+				color: #ffffff;
+			}
+
+			.nav3 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 0;
+				background-color: #3575ff;
+				padding: 10px;
+				width: 100%;
+				color: #fff;
+			}
+
+			.nav3 ul {
+				list-style: none;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav3 li {
+				margin-bottom: 10px;
+				cursor: pointer;
+				padding: 10px;
+				color: #fff;
+				text-decoration: none;
+				transition: 300ms ease-in-out;
+				border-radius: 4px;
+				margin: 10px;
+				position: relative;
+			}
+
+			.nav3 li ul {
+				display: flex;
+				list-style: none;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 0;
+				background-color: #3575ff;
+				padding: 10px;
+				width: 100%;
+				color: #fff;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav3 li ul {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background-color: #3575ff;
+				color: #fff;
+				width: 150px;
+			}
+
+			.nav3 li ul li {
+				display: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav3 li:hover ul li {
+				display: block;
+				padding: 10px;
+				width: 100%;
+			}
+
+			.nav3 li:hover {
+				text-decoration: underline;
+				background-color: #7cbcff;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				padding: 10px;
+				transition: 300ms ease-in-out;
+			}
+
+			.nav3 button {
+				padding: 8px 16px;
+				background-color: #0051a8;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				margin-left: 40px;
+				width: 200px;
+			}
+
+			.nav3 button:hover {
+				background-color: #83bfff;
+				color: #fff;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			.nav3 a {
+				text-decoration: none;
+				color: #ffffff;
+				display: block;
+				padding: 10px;
 			}
 		</style>
 	</head>
@@ -111,7 +282,7 @@
 		</div>
 
 		<div class="nav-container">
-			<h2>Variation 2: Horizontal with hover effects</h2>
+			<h2>Variation 2: Vartical with hover effects</h2>
 			<nav class="nav2">
 				<div class="nav-logo">
 					<h1>LOGO</h1>
@@ -127,7 +298,7 @@
 		</div>
 
 		<div class="nav-container">
-			<h2>Variation 3: Horizontal with dropdown</h2>
+			<h2>Variation 3: Dropdown with hover effects</h2>
 			<nav class="nav3">
 				<div class="nav-logo">
 					<h1>LOGO</h1>
@@ -135,64 +306,17 @@
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Contact</a></li>
 					<li>
-						<a href="#">Dropdown</a>
+						<a href="#">Services</a>
 						<ul>
-							<li><a href="#">Dropdown Item 1</a></li>
-							<li><a href="#">Dropdown Item 2</a></li>
-							<li><a href="#">Dropdown Item 3</a></li>
+							<li><a href="#">Service 1</a></li>
+							<li><a href="#">Service 2</a></li>
+							<li><a href="#">Service 3</a></li>
 						</ul>
 					</li>
-				</ul>
-				<button type="button">Login</button>
-			</nav>
-		</div>
-
-		<div class="nav-container">
-			<h2>Variation 4: Vertical with dropdown</h2>
-			<nav class="nav4">
-				<div class="nav-logo">
-					<h1>LOGO</h1>
-				</div>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 				<button type="button">Login</button>
-			</nav>
-		</div>
-
-		<div class="nav-container">
-			<h2>Variation 5: Vertical with hover effects</h2>
-			<nav class="nav5">
-				<div class="nav-logo">
-					<h1>LOGO</h1>
-				</div>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
-
-		<div class="nav-container">
-			<h2>Variation 6: Vertical with underline effects</h2>
-			<nav class="nav6">
-				<div class="nav-logo">
-					<h1>LOGO</h1>
-				</div>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
 			</nav>
 		</div>
 	</body>
