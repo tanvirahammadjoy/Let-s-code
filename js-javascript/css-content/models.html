@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Beautiful Cards with Modal</title>
+		<style>
+			/* Base styles */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+
+			body {
+				background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+				min-height: 100vh;
+				padding: 40px 20px;
+				color: #333;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			h1 {
+				text-align: center;
+				margin-bottom: 40px;
+				color: #2d3748;
+				font-size: 2.5rem;
+				font-weight: 700;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+			}
+
+			/* Card grid */
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 30px;
+			}
+
+			/* Card styling */
+			.card {
+				background: white;
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				cursor: pointer;
+				position: relative;
+			}
+
+			.card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+			}
+
+			.card-image {
+				height: 200px;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.card-image svg {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+
+			.card:hover .card-image svg {
+				transform: scale(1.05);
+			}
+
+			.card-content {
+				padding: 20px;
+			}
+
+			.card-title {
+				font-size: 1.4rem;
+				font-weight: 600;
+				margin-bottom: 10px;
+				color: #2d3748;
+			}
+
+			.card-text {
+				color: #4a5568;
+				line-height: 1.5;
+				margin-bottom: 15px;
+			}
+
+			.card-tag {
+				display: inline-block;
+				background: #e2e8f0;
+				color: #4a5568;
+				padding: 5px 10px;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				font-weight: 500;
+			}
+
+			/* Modal styling */
+			.modal-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.7);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 1000;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+			}
+
+			.modal-overlay.active {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.modal-content {
+				background: white;
+				width: 90%;
+				max-width: 700px;
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+				transform: scale(0.8);
+				transition: all 0.3s ease;
+				max-height: 90vh;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.modal-overlay.active .modal-content {
+				transform: scale(1);
+			}
+
+			.modal-header {
+				position: relative;
+				height: 250px;
+				overflow: hidden;
+			}
+
+			.modal-header svg {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.modal-close {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				background: white;
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+				transition: all 0.2s ease;
+				border: none;
+				font-size: 20px;
+				color: #4a5568;
+			}
+
+			.modal-close:hover {
+				background: #f8f9fa;
+				transform: rotate(90deg);
+			}
+
+			.modal-body {
+				padding: 30px;
+				overflow-y: auto;
+			}
+
+			.modal-title {
+				font-size: 2rem;
+				font-weight: 700;
+				margin-bottom: 15px;
+				color: #2d3748;
+			}
+
+			.modal-subtitle {
+				color: #718096;
+				font-size: 1.1rem;
+				margin-bottom: 20px;
+			}
+
+			.modal-text {
+				color: #4a5568;
+				line-height: 1.7;
+				margin-bottom: 20px;
+			}
+
+			.modal-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				margin-top: 20px;
+			}
+
+			.modal-tag {
+				background: #e2e8f0;
+				color: #4a5568;
+				padding: 5px 15px;
+				border-radius: 20px;
+				font-size: 0.9rem;
+			}
+
+			.modal-footer {
+				padding: 20px 30px;
+				border-top: 1px solid #e2e8f0;
+				display: flex;
+				justify-content: flex-end;
+			}
+
+			.modal-button {
+				background: #4299e1;
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				border-radius: 8px;
+				font-size: 1rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 0.2s ease;
+			}
+
+			.modal-button:hover {
+				background: #3182ce;
+			}
+
+			/* Responsive adjustments */
+			@media (max-width: 768px) {
+				.card-grid {
+					grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+					gap: 20px;
+				}
+
+				.modal-content {
+					width: 95%;
+				}
+
+				.modal-header {
+					height: 180px;
+				}
+
+				.modal-title {
+					font-size: 1.5rem;
+				}
+			}
+
+			/* No scroll when modal is open */
+			body.modal-open {
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Explore Our Collection</h1>
+
+			<div class="card-grid">
+				<!-- Card 1 -->
+				<div class="card" data-id="1">
+					<div class="card-image">
+						<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop
+										offset="0%"
+										style="stop-color: #6366f1; stop-opacity: 1" />
+									<stop
+										offset="100%"
+										style="stop-color: #a855f7; stop-opacity: 1" />
+								</linearGradient>
+							</defs>
+							<rect width="400" height="200" fill="url(#grad1)" />
+							<circle cx="300" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+							<circle cx="350" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+							<path
+								d="M0,150 Q100,100 200,150 T400,150 L400,200 L0,200 Z"
+								fill="rgba(255,255,255,0.3)" />
+						</svg>
+					</div>
+					<div class="card-content">
+						<h2 class="card-title">Mountain Retreat</h2>
+						<p class="card-text">
+							A peaceful getaway nestled in the mountains with breathtaking
+							views.
+						</p>
+						<span class="card-tag">Nature</span>
+					</div>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="card" data-id="2">
+					<div class="card-image">
+						<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop
+										offset="0%"
+										style="stop-color: #10b981; stop-opacity: 1" />
+									<stop
+										offset="100%"
+										style="stop-color: #3b82f6; stop-opacity: 1" />
+								</linearGradient>
+							</defs>
+							<rect width="400" height="200" fill="url(#grad2)" />
+							<circle cx="50" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+							<circle cx="100" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+							<path
+								d="M0,120 Q100,180 200,120 T400,120 L400,200 L0,200 Z"
+								fill="rgba(255,255,255,0.3)" />
+						</svg>
+					</div>
+					<div class="card-content">
+						<h2 class="card-title">Ocean Paradise</h2>
+						<p class="card-text">
+							Experience the beauty of crystal clear waters and white sandy
+							beaches.
+						</p>
+						<span class="card-tag">Beach</span>
+					</div>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="card" data-id="3">
+					<div class="card-image">
+						<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop
+										offset="0%"
+										style="stop-color: #f59e0b; stop-opacity: 1" />
+									<stop
+										offset="100%"
+										style="stop-color: #ef4444; stop-opacity: 1" />
+								</linearGradient>
+							</defs>
+							<rect width="400" height="200" fill="url(#grad3)" />
+							<circle cx="350" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+							<circle cx="300" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+							<path
+								d="M0,180 Q100,120 200,180 T400,180 L400,200 L0,200 Z"
+								fill="rgba(255,255,255,0.3)" />
+						</svg>
+					</div>
+					<div class="card-content">
+						<h2 class="card-title">Urban Adventure</h2>
+						<p class="card-text">
+							Discover the excitement of city life with endless entertainment
+							options.
+						</p>
+						<span class="card-tag">City</span>
+					</div>
+				</div>
+
+				<!-- Card 4 -->
+				<div class="card" data-id="4">
+					<div class="card-image">
+						<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop
+										offset="0%"
+										style="stop-color: #8b5cf6; stop-opacity: 1" />
+									<stop
+										offset="100%"
+										style="stop-color: #ec4899; stop-opacity: 1" />
+								</linearGradient>
+							</defs>
+							<rect width="400" height="200" fill="url(#grad4)" />
+							<circle cx="100" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+							<circle cx="50" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+							<path
+								d="M0,160 Q100,200 200,160 T400,160 L400,200 L0,200 Z"
+								fill="rgba(255,255,255,0.3)" />
+						</svg>
+					</div>
+					<div class="card-content">
+						<h2 class="card-title">Desert Oasis</h2>
+						<p class="card-text">
+							Experience the tranquility of vast desert landscapes and starry
+							nights.
+						</p>
+						<span class="card-tag">Adventure</span>
+					</div>
+				</div>
+
+				<!-- Card 5 -->
+				<div class="card" data-id="5">
+					<div class="card-image">
+						<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop
+										offset="0%"
+										style="stop-color: #14b8a6; stop-opacity: 1" />
+									<stop
+										offset="100%"
+										style="stop-color: #0ea5e9; stop-opacity: 1" />
+								</linearGradient>
+							</defs>
+							<rect width="400" height="200" fill="url(#grad5)" />
+							<circle cx="200" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+							<circle cx="250" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+							<path
+								d="M0,140 Q100,100 200,140 T400,140 L400,200 L0,200 Z"
+								fill="rgba(255,255,255,0.3)" />
+						</svg>
+					</div>
+					<div class="card-content">
+						<h2 class="card-title">Forest Hideaway</h2>
+						<p class="card-text">
+							Immerse yourself in the lush greenery and peaceful sounds of
+							nature.
+						</p>
+						<span class="card-tag">Relaxation</span>
+					</div>
+				</div>
+
+				<!-- Card 6 -->
+				<div class="card" data-id="6">
+					<div class="card-image">
+						<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop
+										offset="0%"
+										style="stop-color: #4f46e5; stop-opacity: 1" />
+									<stop
+										offset="100%"
+										style="stop-color: #7c3aed; stop-opacity: 1" />
+								</linearGradient>
+							</defs>
+							<rect width="400" height="200" fill="url(#grad6)" />
+							<circle cx="300" cy="150" r="30" fill="rgba(255,255,255,0.2)" />
+							<circle cx="350" cy="50" r="20" fill="rgba(255,255,255,0.2)" />
+							<path
+								d="M0,170 Q100,130 200,170 T400,170 L400,200 L0,200 Z"
+								fill="rgba(255,255,255,0.3)" />
+						</svg>
+					</div>
+					<div class="card-content">
+						<h2 class="card-title">Historic Journey</h2>
+						<p class="card-text">
+							Step back in time and explore ancient ruins and cultural
+							landmarks.
+						</p>
+						<span class="card-tag">History</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal-overlay" id="modal">
+			<div class="modal-content">
+				<div class="modal-header" id="modal-header">
+					<!-- SVG will be inserted here -->
+				</div>
+				<button class="modal-close" id="modal-close">×</button>
+				<div class="modal-body">
+					<h2 class="modal-title" id="modal-title"></h2>
+					<p class="modal-subtitle" id="modal-subtitle"></p>
+					<div class="modal-text" id="modal-text"></div>
+					<div class="modal-tags" id="modal-tags"></div>
+				</div>
+				<div class="modal-footer">
+					<button class="modal-button" id="modal-button">Learn More</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			// Card data
+			const cardData = [
+				{
+					id: 1,
+					title: 'Mountain Retreat',
+					subtitle: 'Elevation: 8,500 ft | Location: Alpine Region',
+					image: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="modal-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="400" height="200" fill="url(#modal-grad1)" />
+                        <circle cx="300" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+                        <circle cx="350" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+                        <path d="M0,150 Q100,100 200,150 T400,150 L400,200 L0,200 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>`,
+					text: "Nestled in the heart of the majestic mountains, this retreat offers a perfect escape from the hustle and bustle of everyday life. Wake up to breathtaking panoramic views, crisp mountain air, and the gentle sounds of nature. The retreat features cozy accommodations with modern amenities, hiking trails for all skill levels, and a serene atmosphere that promotes relaxation and rejuvenation. Whether you're seeking adventure or tranquility, this mountain getaway provides the perfect backdrop for creating unforgettable memories.",
+					tags: ['Nature', 'Hiking', 'Relaxation', 'Scenic Views'],
+				},
+				{
+					id: 2,
+					title: 'Ocean Paradise',
+					subtitle: 'Beachfront Property | Tropical Climate',
+					image: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="modal-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="400" height="200" fill="url(#modal-grad2)" />
+                        <circle cx="50" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+                        <circle cx="100" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+                        <path d="M0,120 Q100,180 200,120 T400,120 L400,200 L0,200 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>`,
+					text: 'Discover the ultimate beachfront experience at our Ocean Paradise resort. With pristine white sandy beaches stretching as far as the eye can see and crystal-clear turquoise waters, this destination is a dream come true for beach lovers. Enjoy a variety of water activities including snorkeling, diving, and paddleboarding, or simply relax under the shade of a palm tree with a refreshing drink in hand. Our luxurious accommodations offer stunning ocean views, allowing you to fall asleep to the gentle sound of waves and wake up to spectacular sunrises over the horizon.',
+					tags: ['Beach', 'Swimming', 'Snorkeling', 'Sunsets'],
+				},
+				{
+					id: 3,
+					title: 'Urban Adventure',
+					subtitle: 'Downtown District | Cultural Hub',
+					image: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="modal-grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="400" height="200" fill="url(#modal-grad3)" />
+                        <circle cx="350" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+                        <circle cx="300" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+                        <path d="M0,180 Q100,120 200,180 T400,180 L400,200 L0,200 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>`,
+					text: "Immerse yourself in the vibrant energy of city life with our Urban Adventure package. Located in the heart of the downtown district, you'll be steps away from world-class restaurants, shopping, museums, and entertainment venues. Explore historic landmarks during the day and experience the exciting nightlife after dark. Our curated city tours will take you off the beaten path to discover hidden gems and local favorites. With convenient access to public transportation and comfortable accommodations in a prime location, this urban getaway offers the perfect blend of culture, convenience, and excitement for the modern traveler.",
+					tags: ['City', 'Nightlife', 'Shopping', 'Culture'],
+				},
+				{
+					id: 4,
+					title: 'Desert Oasis',
+					subtitle: 'Luxury Camp | Stargazing Paradise',
+					image: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="modal-grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="400" height="200" fill="url(#modal-grad4)" />
+                        <circle cx="100" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+                        <circle cx="50" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+                        <path d="M0,160 Q100,200 200,160 T400,160 L400,200 L0,200 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>`,
+					text: 'Experience the mystical beauty of the desert at our exclusive Desert Oasis retreat. By day, marvel at the vast, golden landscapes and unique desert flora and fauna. As the sun sets, witness the sky transform into a canvas of vibrant colors before revealing one of the most spectacular stargazing experiences on Earth. Our luxury tented accommodations combine traditional desert charm with modern comforts, featuring private terraces, plush bedding, and en-suite facilities. Activities include guided desert safaris, camel rides at sunset, and traditional cultural experiences. The tranquility and otherworldly beauty of this desert sanctuary create a truly transformative escape.',
+					tags: ['Adventure', 'Stargazing', 'Tranquility', 'Unique'],
+				},
+				{
+					id: 5,
+					title: 'Forest Hideaway',
+					subtitle: 'Eco-Friendly Cabins | Wildlife Reserve',
+					image: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="modal-grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="400" height="200" fill="url(#modal-grad5)" />
+                        <circle cx="200" cy="50" r="30" fill="rgba(255,255,255,0.2)" />
+                        <circle cx="250" cy="100" r="20" fill="rgba(255,255,255,0.2)" />
+                        <path d="M0,140 Q100,100 200,140 T400,140 L400,200 L0,200 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>`,
+					text: 'Retreat into the heart of an ancient forest at our eco-friendly Forest Hideaway. Surrounded by towering trees and lush vegetation, our sustainably built cabins offer the perfect balance of rustic charm and modern comfort. Fall asleep to the gentle sounds of the forest and wake up to birdsong and dappled sunlight filtering through the canopy. Explore miles of hiking trails, observe diverse wildlife in their natural habitat, and reconnect with nature through guided forest bathing experiences. In the evening, gather around a campfire for storytelling under the stars or relax in your private hot tub on the deck. This forest sanctuary provides a peaceful respite from the digital world and a chance to rejuvenate your mind, body, and spirit.',
+					tags: ['Relaxation', 'Nature', 'Eco-Friendly', 'Wildlife'],
+				},
+				{
+					id: 6,
+					title: 'Historic Journey',
+					subtitle: 'Heritage Site | Cultural Experience',
+					image: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="modal-grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="400" height="200" fill="url(#modal-grad6)" />
+                        <circle cx="300" cy="150" r="30" fill="rgba(255,255,255,0.2)" />
+                        <circle cx="350" cy="50" r="20" fill="rgba(255,255,255,0.2)" />
+                        <path d="M0,170 Q100,130 200,170 T400,170 L400,200 L0,200 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>`,
+					text: "Embark on a fascinating journey through time with our Historic Journey experience. Stay in beautifully restored heritage accommodations that tell stories of bygone eras while offering contemporary amenities. Expert guides will lead you through ancient ruins, architectural marvels, and cultural landmarks, bringing history to life with captivating narratives and insights. Participate in traditional craft workshops, culinary experiences featuring historic recipes, and cultural performances that showcase local heritage. This immersive experience offers a deeper understanding of the region's rich history and cultural significance, creating meaningful connections between past and present. Perfect for history enthusiasts and curious travelers seeking authentic cultural experiences.",
+					tags: ['History', 'Culture', 'Architecture', 'Education'],
+				},
+			]
+
+			// DOM elements
+			const modal = document.getElementById('modal')
+			const modalClose = document.getElementById('modal-close')
+			const modalTitle = document.getElementById('modal-title')
+			const modalSubtitle = document.getElementById('modal-subtitle')
+			const modalText = document.getElementById('modal-text')
+			const modalTags = document.getElementById('modal-tags')
+			const modalHeader = document.getElementById('modal-header')
+			const cards = document.querySelectorAll('.card')
+
+			// Add click event to each card
+			cards.forEach(card => {
+				card.addEventListener('click', () => {
+					const cardId = parseInt(card.getAttribute('data-id'))
+					const selectedCard = cardData.find(item => item.id === cardId)
+
+					if (selectedCard) {
+						// Populate modal with card data
+						modalTitle.textContent = selectedCard.title
+						modalSubtitle.textContent = selectedCard.subtitle
+						modalText.textContent = selectedCard.text
+						modalHeader.innerHTML = selectedCard.image
+
+						// Create tags
+						modalTags.innerHTML = ''
+						selectedCard.tags.forEach(tag => {
+							const tagElement = document.createElement('span')
+							tagElement.classList.add('modal-tag')
+							tagElement.textContent = tag
+							modalTags.appendChild(tagElement)
+						})
+
+						// Open modal
+						openModal()
+					}
+				})
+			})
+
+			// Open modal function
+			function openModal() {
+				modal.classList.add('active')
+				document.body.classList.add('modal-open')
+			}
+
+			// Close modal function
+			function closeModal() {
+				modal.classList.remove('active')
+				document.body.classList.remove('modal-open')
+			}
+
+			// Close modal when clicking the close button
+			modalClose.addEventListener('click', closeModal)
+
+			// Close modal when clicking outside the modal content
+			modal.addEventListener('click', e => {
+				if (e.target === modal) {
+					closeModal()
+				}
+			})
+
+			// Close modal when pressing ESC key
+			document.addEventListener('keydown', e => {
+				if (e.key === 'Escape' && modal.classList.contains('active')) {
+					closeModal()
+				}
+			})
+		</script>
+		<script>
+			;(function () {
+				function c() {
+					var b = a.contentDocument || a.contentWindow.document
+					if (b) {
+						var d = b.createElement('script')
+						d.innerHTML =
+							"window.__CF$cv$params={r:'9689ba0bb40735aa',t:'MTc1NDA5NzM1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"
+						b.getElementsByTagName('head')[0].appendChild(d)
+					}
+				}
+				if (document.body) {
+					var a = document.createElement('iframe')
+					a.height = 1
+					a.width = 1
+					a.style.position = 'absolute'
+					a.style.top = 0
+					a.style.left = 0
+					a.style.border = 'none'
+					a.style.visibility = 'hidden'
+					document.body.appendChild(a)
+					if ('loading' !== document.readyState) c()
+					else if (window.addEventListener)
+						document.addEventListener('DOMContentLoaded', c)
+					else {
+						var e = document.onreadystatechange || function () {}
+						document.onreadystatechange = function (b) {
+							e(b)
+							'loading' !== document.readyState &&
+								((document.onreadystatechange = e), c())
+						}
+					}
+				}
+			})()
+		</script>
+	</body>
+</html>
