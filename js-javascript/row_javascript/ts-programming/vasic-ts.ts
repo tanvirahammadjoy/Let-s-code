@@ -17,7 +17,7 @@ class UserService {
     }
 
     getUserById(id: number): User | undefined {
-        return this.users.find(user => user.id === id);
+        return this.users.find((user) => user.id === id);
     }
 
     getAllUsers(): User[] {
@@ -33,7 +33,9 @@ userService.addUser({ id: 2, name: 'Bob', email: 'bob@example.com' });
 // Retrieve and log a user by ID
 const user = userService.getUserById(1);
 if (user) {
-    console.log(`User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`);
+    console.log(
+        `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`
+    );
 }
 
 // log all users

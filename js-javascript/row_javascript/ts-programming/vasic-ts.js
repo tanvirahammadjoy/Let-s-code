@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 // let's write some basic TypeScript code
 // to demonstrate the use of types, interfaces, and classes in TypeScript
 // A simple class to manage users
@@ -10,7 +10,7 @@ class UserService {
         this.users.push(user);
     }
     getUserById(id) {
-        return this.users.find(user => user.id === id);
+        return this.users.find((user) => user.id === id);
     }
     getAllUsers() {
         return this.users;
@@ -23,7 +23,9 @@ userService.addUser({ id: 2, name: 'Bob', email: 'bob@example.com' });
 // Retrieve and log a user by ID
 const user = userService.getUserById(1);
 if (user) {
-    console.log(`User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`);
+    console.log(
+        `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`
+    );
 }
 // log all users
 console.log('All Users:', userService.getAllUsers());

@@ -3,10 +3,10 @@
 
 // Maps
 let myMap = new Map();
-myMap.set("key1", "value1");
-myMap.set("key2", "value2");
-console.log(myMap.get("key1")); // Getting a value by key
-console.log(myMap.has("key2")); // Checking if a key exists in the map
+myMap.set('key1', 'value1');
+myMap.set('key2', 'value2');
+console.log(myMap.get('key1')); // Getting a value by key
+console.log(myMap.has('key2')); // Checking if a key exists in the map
 
 // sets
 let mySet = new Set([1, 2, 3, 4, 5]);
@@ -16,7 +16,7 @@ console.log(mySet.has(3)); // Checking if an element exists in the set
 // Promises
 let myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Promise resolved");
+        resolve('Promise resolved');
     }, 2000);
 });
 myPromise.then((result) => {
@@ -29,7 +29,7 @@ async function asyncFunction() {
         let result = await myPromise; // Waiting for the promise to resolve
         console.log(result); // Logging the resolved value
     } catch (error) {
-        console.error("Error in async function:", error);
+        console.error('Error in async function:', error);
     }
 }
 asyncFunction(); // Calling the async function
@@ -44,7 +44,7 @@ console.log(moduleFunction()); // Calling the imported function
 // Unique JavaScript Concepts
 
 // Template Literals
-let name = "Alice";
+let name = 'Alice';
 let age = 30;
 let greeting = `Hello, ${name}! You are ${age} years old.`; // Using template literals for string interpolation
 console.log(greeting); // Logging the greeting message
@@ -57,7 +57,6 @@ let [first, second, ...rest] = numbers; // Rest operator to extract elements fro
 console.log(first, second, rest); // Logging the extracted elements and the remaining elements
 
 // Destructuring
-let personInfo = { name: "Charlie", age: 28 };
+let personInfo = { name: 'Charlie', age: 28 };
 let { name: personName, age: personAge } = personInfo; // Destructuring an object
 console.log(personName, personAge); // Logging the destructured values
-

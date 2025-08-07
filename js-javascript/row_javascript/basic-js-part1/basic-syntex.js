@@ -1,27 +1,35 @@
 // basic syntax of javascript
-console.log("Hello World");
+console.log('Hello World');
 
 // This is a single line comment
 /* This is a 
    multi-line comment
    that can span multiple lines */
-console.log("This is a comment example"); // This will log a message to the console
+console.log('This is a comment example'); // This will log a message to the console
 
 // Variables
-let name = "John"; // Using let to declare a variable
+let name = 'John'; // Using let to declare a variable
 const age = 30; // Using const to declare a constant variable
 var isStudent = true; // Using var to declare a variable (not recommended in modern JS)
 console.log(name, age, isStudent);
 // Data Types
 let number = 42; // Number type
-let string = "Hello"; // String type
+let string = 'Hello'; // String type
 let boolean = false; // Boolean type
-let object = { key: "value" }; // Object type
+let object = { key: 'value' }; // Object type
 let array = [1, 2, 3]; // Array type
 let nullValue = null; // Null type
 let undefinedValue; // Undefined type
 
-console.log(typeof number, typeof string, typeof boolean, typeof object, typeof array, typeof nullValue, typeof undefinedValue);
+console.log(
+    typeof number,
+    typeof string,
+    typeof boolean,
+    typeof object,
+    typeof array,
+    typeof nullValue,
+    typeof undefinedValue
+);
 
 // Operators
 let a = 10;
@@ -41,34 +49,32 @@ console.log(!a); // Logical NOT
 
 // Control Structures
 if (a > b) {
-    console.log("a is greater than b");
-}
-else if (a < b) {
-    console.log("a is less than b");
-}
-else {
-    console.log("a is equal to b");
+    console.log('a is greater than b');
+} else if (a < b) {
+    console.log('a is less than b');
+} else {
+    console.log('a is equal to b');
 }
 
 // Loops
 for (let i = 0; i < 5; i++) {
-    console.log("Iteration:", i);
+    console.log('Iteration:', i);
 }
 
 while (a > 0) {
-    console.log("a is:", a);
+    console.log('a is:', a);
     a--; // Decrementing a
 }
 
 do {
-    console.log("This will run at least once");
+    console.log('This will run at least once');
 } while (false); // This will not run again since the condition is false
 
 // Functions
 function greet(name) {
-    return "Hello, " + name + "!";
+    return 'Hello, ' + name + '!';
 }
-console.log(greet("Alice")); // Calling the function with an argument
+console.log(greet('Alice')); // Calling the function with an argument
 
 // Arrow Functions
 const add = (x, y) => x + y;
@@ -85,19 +91,19 @@ class Person {
         return `My name is ${this.name} and I am ${this.age} years old.`;
     }
 }
-const person = new Person("Bob", 25);
+const person = new Person('Bob', 25);
 console.log(person.introduce()); // Calling a method of the class
 
 // Error Handling
 try {
     let result = a / 0; // This will not throw an error, but let's simulate an error
     if (result === Infinity) {
-        throw new Error("Division by zero is not allowed");
+        throw new Error('Division by zero is not allowed');
     }
 } catch (error) {
-    console.error("Error caught:", error.message); // Catching and logging the error
+    console.error('Error caught:', error.message); // Catching and logging the error
 } finally {
-    console.log("This will always run, regardless of an error");
+    console.log('This will always run, regardless of an error');
 }
 
 // JSON Example
@@ -114,12 +120,12 @@ console.log(greeting); // Using template literals for string interpolation
 // Spread and Rest Operators
 let numbers = [1, 2, 3];
 let moreNumbers = [...numbers, 4, 5]; // Spread operator to create a new array
-console.log(moreNumbers); // Logging the new array  
+console.log(moreNumbers); // Logging the new array
 let [first, second, ...rest] = numbers; // Rest operator to extract elements from an array
 console.log(first, second, rest); // Logging the extracted elements
 
 // Destructuring
-let personInfo = { name: "Charlie", age: 28 };
+let personInfo = { name: 'Charlie', age: 28 };
 let { name: personName, age: personAge } = personInfo; // Destructuring an object
 console.log(personName, personAge); // Logging the destructured values
 
@@ -128,15 +134,15 @@ let mySet = new Set([1, 2, 3, 4, 5]);
 mySet.add(6); // Adding an element to the set
 console.log(mySet.has(3)); // Checking if an element exists in the set
 let myMap = new Map();
-myMap.set("key1", "value1"); // Setting a key-value pair in the map
-myMap.set("key2", "value2");
-console.log(myMap.get("key1")); // Getting a value by key
-console.log(myMap.has("key2")); // Checking if a key exists in the map
+myMap.set('key1', 'value1'); // Setting a key-value pair in the map
+myMap.set('key2', 'value2');
+console.log(myMap.get('key1')); // Getting a value by key
+console.log(myMap.has('key2')); // Checking if a key exists in the map
 
 // Promises
 let myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Promise resolved");
+        resolve('Promise resolved');
     }, 2000);
 });
 myPromise.then((result) => {
@@ -149,7 +155,7 @@ async function asyncFunction() {
         let result = await myPromise; // Waiting for the promise to resolve
         console.log(result); // Logging the resolved value
     } catch (error) {
-        console.error("Error in async function:", error);
+        console.error('Error in async function:', error);
     }
 }
 asyncFunction(); // Calling the async function
@@ -157,7 +163,7 @@ asyncFunction(); // Calling the async function
 // Modules (ES6)
 // Assuming this code is in a module file, you can export and import functions or variables.
 export function moduleFunction() {
-    return "This is a module function";
+    return 'This is a module function';
 }
 import { moduleFunction } from './path-to-module-file.js'; // Importing the module function
 console.log(moduleFunction()); // Calling the imported function
