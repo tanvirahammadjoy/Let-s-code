@@ -1,5 +1,7 @@
 // basic part 1 of JavaScript
 
+console.log('Hello World');
+
 // Basic JavaScript Syntax Example
 let name = 'Alice';
 let age = 25;
