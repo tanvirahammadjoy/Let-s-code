@@ -38,6 +38,23 @@ ul::scroll-marker-group {
     gap: 20px;
 }
 
+ul::scroll-button(left) {
+    content: 'left';
+    right: calc(anchor(left) - 70px);
+    /* bottom: calc(anchor(top) + 13px); */
+}
+
+ul::scroll-button(right) {
+    content: 'right';
+    left: calc(anchor(right) - 70px);
+    /* bottom: calc(anchor(top) + 13px); */
+}
+
+ul::scroll-button(*) {
+    position: absolute;
+    position-anchor: --my-carousel;
+}
+
 ul::scroll-button(*):hover,
 ul::scroll-button(*):focus {
     color: rgb(0 0 0 / 1);
@@ -50,23 +67,6 @@ ul::scroll-button(*):active {
 ul::scroll-button(*):disabled {
     color: rgb(0 0 0 / 0.2);
     cursor: unset;
-}
-
-ul::scroll-button(left) {
-    content: 'left';
-    right: calc(anchor(left) - 70px);
-    bottom: calc(anchor(top) + 13px);
-}
-
-ul::scroll-button(right) {
-    content: 'right';
-    left: calc(anchor(right) - 70px);
-    bottom: calc(anchor(top) + 13px);
-}
-
-ul::scroll-button(*) {
-    position: absolute;
-    position-anchor: --my-carousel;
 }
 
 ul::column {
@@ -89,7 +89,7 @@ ul::column::scroll-marker:target-current {
 li {
     list-style-type: none;
 
-    width: 50px;
+    width: 300px;
     height: 100%;
     display: inline-block;
 
