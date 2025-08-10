@@ -129,7 +129,6 @@ li:focus-visible {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .item {
@@ -150,11 +149,28 @@ li:focus-visible {
     width: 16px;
     height: 16px;
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 214, 214);
     border-radius: 50%;
-    background-color: #0056b3;
+    background-color: transparent;
 }
 
 .item::scroll-marker:target-current {
     background-color: black;
+}
+
+.item:nth-child(odd){
+    background-color: #ff9d9d;
+}
+
+.item:nth-child(even){
+    background-color: #75dfff;
+}
+
+.item:nth-child(1) {
+    background-color: #ff0000;
+}
+
+.item:nth-child(4) {
+    background-color: #000608;
+    color: #007bff;
 }
