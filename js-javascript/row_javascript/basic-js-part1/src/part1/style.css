@@ -5,103 +5,49 @@
 }
 
 body {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(150, 150, 150);
-    color: rgb(102, 102, 102);
+    font-family: Arial, sans-serif;
+    background-color: #858585;
 }
 
 ul {
-    width: 1000px;
-    height: 300px;
-    display: flex;
-    gap: 4vw;
-    padding: 20px;
-    overflow-inline: scroll;
+    width: 500px;
+    height: auto;
+    margin: auto;
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    background-color: rgb(72, 72, 255);
-    anchor-name: --my-carousel;
+    list-style-type: none;
+    display: flex;
+
+    columns: 1;
+    text-align: center;
+
     scroll-marker-group: after;
+    anchor-name: --myCarousel1;
 }
 
 ul::scroll-marker-group {
     position: absolute;
-    position-anchor: --my-carousel;
-    top: calc(anchor(bottom) - 70px);
+    position-anchor: --myCarousel1;
+    top: calc(anchor(bottom) - 50px);
     justify-self: anchor-center;
 
     display: flex;
     justify-content: center;
-    gap: 20px;
-}
-
-ul::scroll-button(left) {
-    content: 'left';
-    right: calc(anchor(left) - 70px);
-    /* bottom: calc(anchor(top) + 13px); */
-}
-
-ul::scroll-button(right) {
-    content: 'right';
-    left: calc(anchor(right) - 70px);
-    /* bottom: calc(anchor(top) + 13px); */
-}
-
-ul::scroll-button(*) {
-    position: absolute;
-    position-anchor: --my-carousel;
-}
-
-ul::scroll-button(*):hover,
-ul::scroll-button(*):focus {
-    color: rgb(0 0 0 / 1);
-}
-
-ul::scroll-button(*):active {
-    translate: 1px 1px;
-}
-
-ul::scroll-button(*):disabled {
-    color: rgb(0 0 0 / 0.2);
-    cursor: unset;
-}
-
-ul::column {
-    scroll-snap-align: center;
-}
-
-ul::column::scroll-marker {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-ul::column::scroll-marker:target-current {
-    background-color: black;
+    gap: 10px;
+    background-color: #007bff;
 }
 
 li {
-    list-style-type: none;
-
     width: 300px;
-    height: 100%;
+    height: 200px;
+    background-color: #fff;
+    margin: 10px;
+    scroll-snap-align: start;
     display: inline-block;
-
-    background-color: #eee;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 0 10px;
-
+    cursor: pointer;
     flex: 0 0 100%;
-    scroll-snap-align: center;
-
-    text-align: left;
 }
 
 li::scroll-marker {
@@ -111,20 +57,104 @@ li::scroll-marker {
     background-color: transparent;
     border: 2px solid black;
     border-radius: 50%;
+    background-color: #0056b3;
 }
 
 li::scroll-marker:target-current {
     background-color: black;
 }
 
-ul::scroll-button(*) {
-    border: 0;
-    font-size: 2rem;
-    background: none;
-    color: rgb(0 0 0 / 0.7);
-    cursor: pointer;
+h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+li:nth-child(odd) {
+    background-color: #75dfff;
 }
 
 li:nth-child(even) {
-    background-color: cyan;
+    background-color: #ff9d9d;
+}
+
+li:hover {
+    background-color: #c0c0c0;
+    transform: scale(1.05);
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+li:active {
+    background-color: #ffb2b2;
+    transform: scale(0.95);
+    transition:
+        background-color 0.1s ease,
+        transform 0.1s ease;
+}
+
+li:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    transition: outline 0.3s ease;
+}
+
+li:focus-visible {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+
+.container1 {
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.scroll-bar {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    scroll-marker-group: after;
+}
+
+.scroll-bar::scroll-marker-group {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.item {
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    margin: 10px;
+    scroll-snap-align: start;
+    display: flex;
+    flex: 0 0 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.item::scroll-marker {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #0056b3;
+}
+
+.item::scroll-marker:target-current {
+    background-color: black;
 }
