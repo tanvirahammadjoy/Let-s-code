@@ -36,7 +36,6 @@ ul::scroll-marker-group {
     display: flex;
     justify-content: center;
     gap: 10px;
-    background-color: #007bff;
 }
 
 li {
@@ -46,6 +45,9 @@ li {
     margin: 10px;
     scroll-snap-align: start;
     display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     flex: 0 0 100%;
 }
@@ -57,7 +59,6 @@ li::scroll-marker {
     background-color: transparent;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: #0056b3;
 }
 
 li::scroll-marker:target-current {
@@ -129,6 +130,7 @@ li:focus-visible {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .item {
