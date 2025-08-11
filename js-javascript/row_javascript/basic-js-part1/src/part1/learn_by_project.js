@@ -103,6 +103,7 @@ let arrToNum = Number(arr); // NaN
 let objToNum = Number(obj); // NaN
 
 console.log(
+    '(num to string)=>',
     typeof numToStr,
     typeof boolToStr,
     typeof bigIntToStr,
@@ -112,6 +113,7 @@ console.log(
     typeof arrToStr,
     typeof objToStr,
     typeof funcToStr,
+    '(str to num section)=>',
     typeof strToNum,
     typeof bigIntToNum,
     typeof nullToNum,
@@ -121,7 +123,7 @@ console.log(
 );
 
 console.log(
-    strToNum,
+    '(num to string)=>',
     numToStr,
     boolToStr,
     bigIntToStr,
@@ -131,9 +133,27 @@ console.log(
     arrToStr,
     objToStr,
     funcToStr,
+    '(str to num section)=>',
+    strToNum,
     bigIntToNum,
     nullToNum,
     undefinedToNum,
     arrToNum,
     objToNum
 );
+
+// other types of conversions
+// let strToBigInt = BigInt(str); // can not convert, results in NaN
+let strToNull = null; // null
+let strToUndefined = undefined; // undefined
+let strToSym = Symbol(str); // Symbol(Hello, World!)
+let strToArr = Array.from(str); // ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!']
+let strToObj = { value: str }; // { value: 'Hello, World!' }
+// converting string to function
+let strToFunc = function () {
+    return str;
+}; // function() { return 'Hello, World!'; }
+strToFunc(); // not called yet, but it will return 'Hello, World!'
+
+console.log(strToNull, strToUndefined, strToSym, strToArr, strToObj, strToFunc());
+
