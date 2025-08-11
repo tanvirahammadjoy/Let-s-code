@@ -43,8 +43,97 @@ function testScope() {
 // console.log('this output 2 global: ', x, y, z, h); // 15, 25, 30, Hello, World!?
 
 // data types
-let str = "Hello, World!"; // string
+let str = 'Hello, World!'; // string
 let num = 42; // number
 let isTrue = true; // boolean
+let bigInt = 1234567890123456789012345678901234567890n; // bigint
+let nullValue = null; // null
+let undefinedValue = undefined; // undefined
+let sym = Symbol('description'); // symbol
+
 let arr = [1, 2, 3]; // array
-let obj = { key: "value" }; // object
+let obj = { key: 'value' }; // object
+let func = function () {
+    return 'Hello, Function!';
+}; // function
+
+console.log(
+    str,
+    num,
+    isTrue,
+    bigInt,
+    nullValue,
+    undefinedValue,
+    sym,
+    arr,
+    obj,
+    func()
+);
+console.log(
+    typeof str,
+    typeof num,
+    typeof isTrue,
+    typeof bigInt,
+    typeof nullValue,
+    typeof undefinedValue,
+    typeof sym,
+    typeof arr,
+    typeof obj,
+    typeof func
+);
+
+// type conversion
+let numToStr = String(num); // "42"
+let boolToStr = String(isTrue); // "true"
+let bigIntToStr = String(bigInt); // "1234567890123456789012345678901234567890"
+let nullToStr = String(nullValue); // "null"
+let undefinedToStr = String(undefinedValue); // "undefined"
+let symToStr = String(sym); // "Symbol(description)"
+let arrToStr = String(arr); // "1,2,3"
+let objToStr = String(obj); // "[object Object]"
+let funcToStr = String(func); // "function() { return "Hello, Function!"; }"
+
+// converting to number
+let strToNum = Number(str); // NaN
+let bigIntToNum = Number(bigInt); // 1.2345678901234567e+36
+let nullToNum = Number(nullValue); // 0
+let undefinedToNum = Number(undefinedValue); // NaN
+// let symToNum = Number(sym); // symbol cannot be converted to a number, so it results in NaN
+let arrToNum = Number(arr); // NaN
+let objToNum = Number(obj); // NaN
+
+console.log(
+    typeof numToStr,
+    typeof boolToStr,
+    typeof bigIntToStr,
+    typeof nullToStr,
+    typeof undefinedToStr,
+    typeof symToStr,
+    typeof arrToStr,
+    typeof objToStr,
+    typeof funcToStr,
+    typeof strToNum,
+    typeof bigIntToNum,
+    typeof nullToNum,
+    typeof undefinedToNum,
+    typeof arrToNum,
+    typeof objToNum
+);
+
+console.log(
+    strToNum,
+    numToStr,
+    boolToStr,
+    bigIntToStr,
+    nullToStr,
+    undefinedToStr,
+    symToStr,
+    arrToStr,
+    objToStr,
+    funcToStr,
+    bigIntToNum,
+    nullToNum,
+    undefinedToNum,
+    arrToNum,
+    objToNum
+);
