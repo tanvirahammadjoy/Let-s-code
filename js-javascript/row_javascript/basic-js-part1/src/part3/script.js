@@ -8,13 +8,20 @@ let allowShift = true;
 
 // 1️⃣ Clone first and last images
 const firstClone = images[0].cloneNode(true);
+console.log(firstClone);
+
 const lastClone = images[images.length - 1].cloneNode(true);
+console.log(lastClone);
 
 carouselImages.appendChild(firstClone);
+console.log(carouselImages);
+
 carouselImages.insertBefore(lastClone, images[0]);
+console.log(carouselImages);
 
 // Update width for cloned images
 const allImages = document.querySelectorAll('.carousel-images img');
+console.log(allImages);
 
 // Start in correct position
 carouselImages.style.transform = `translateX(${-currentIndex * 100}%)`;
@@ -24,6 +31,7 @@ function shiftSlide(dir) {
     if (allowShift) {
         carouselImages.style.transition = "transform 0.5s ease";
         currentIndex += dir;
+        console.log(currentIndex);
         carouselImages.style.transform = `translateX(${-currentIndex * 100}%)`;
         allowShift = false;
     }
