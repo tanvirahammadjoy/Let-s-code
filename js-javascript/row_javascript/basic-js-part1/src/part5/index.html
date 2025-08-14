@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Smooth 3D Stage Carousel</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                height: 100vh;
+                background-color: rgb(78, 78, 78);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                font-family: Arial, sans-serif;
+            }
+
+            .carousel {
+                width: 800px;
+                perspective: 1000px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .car {
+                display: flex;
+                will-change: transform;
+                transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+            .item1 {
+                flex: 0 0 100%;
+                height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                transition:
+                    transform 0.5s ease,
+                    box-shadow 0.5s ease,
+                    opacity 0.5s ease;
+            }
+
+            .item1:nth-child(odd) {
+                background-color: rgba(255, 25, 25, 0.5);
+            }
+            .item1:nth-child(even) {
+                background-color: rgba(0, 255, 0, 0.5);
+            }
+
+            /* Main card */
+            .item1.active {
+                transform: scale(1.1) translateZ(50px);
+                box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+                z-index: 2;
+            }
+
+            /* Side cards */
+            .item1.side-left {
+                transform: scale(0.9) translateZ(-50px) rotateY(15deg);
+                opacity: 0.8;
+            }
+            .item1.side-right {
+                transform: scale(0.9) translateZ(-50px) rotateY(-15deg);
+                opacity: 0.8;
+            }
+
+            /* Buttons */
+            button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 10px 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+                border-radius: 5px;
+                z-index: 3;
+            }
+            .prev {
+                left: 10px;
+            }
+            .next {
+                right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="carousel">
+            <div class="car">
+                <div class="item1">Item 1</div>
+                <div class="item1">Item 2</div>
+                <div class="item1">Item 3</div>
+                <div class="item1">Item 4</div>
+                <div class="item1">Item 5</div>
+            </div>
+            <button class="prev">Previous</button>
+            <button class="next">Next</button>
+        </div>
+
+        <script>
+            let car = document.querySelector('.car');
+            let originalItems = Array.from(document.querySelectorAll('.item1'));
+            let prevButton = document.querySelector('.prev');
+            let nextButton = document.querySelector('.next');
+            let allowShift = true;
+
+            // Clone all items to start and end for smooth loop
+            originalItems.forEach((item) => {
+                let cloneFirst = item.cloneNode(true);
+                let cloneLast = item.cloneNode(true);
+                car.appendChild(cloneFirst);
+                car.insertBefore(cloneLast, originalItems[0]);
+            });
+
+            let allItems = document.querySelectorAll('.item1');
+            let totalOriginal = originalItems.length;
+            let currentIndex = totalOriginal; // Start at real first slide
+
+            // Initial position
+            car.style.transform = `translate3d(${-currentIndex * 100}%, 0, 0)`;
+            updateClasses();
+
+            function shiftSlide(dir) {
+                if (!allowShift) return;
+                allowShift = false;
+                currentIndex += dir;
+                car.style.transition =
+                    'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+                car.style.transform = `translate3d(${-currentIndex * 100}%, 0, 0)`;
+            }
+
+            car.addEventListener('transitionend', () => {
+                // Too far right → reset to real first
+                if (currentIndex >= allItems.length - totalOriginal) {
+                    car.style.transition = 'none';
+                    currentIndex = totalOriginal;
+                    car.style.transform = `translate3d(${-currentIndex * 100}%, 0, 0)`;
+                }
+                // Too far left → reset to real last
+                if (currentIndex < totalOriginal) {
+                    car.style.transition = 'none';
+                    currentIndex = allItems.length - totalOriginal - 1;
+                    car.style.transform = `translate3d(${-currentIndex * 100}%, 0, 0)`;
+                }
+                updateClasses();
+                allowShift = true;
+            });
+
+            // button should be call after 3 second repeat
+            let autoSlide = setInterval(() => shiftSlide(1), 3000);
+
+            prevButton.addEventListener('click', () => {
+                // clearInterval(autoSlide);
+                shiftSlide(-1);
+            });
+            nextButton.addEventListener('click', () => {
+                // clearInterval(autoSlide);
+                shiftSlide(1);
+            });
+
+            function updateClasses() {
+                allItems.forEach((item, index) => {
+                    item.classList.remove('active', 'side-left', 'side-right');
+                    if (index === currentIndex) {
+                        item.classList.add('active');
+                    } else if (index === currentIndex - 1) {
+                        item.classList.add('side-left');
+                    } else if (index === currentIndex + 1) {
+                        item.classList.add('side-right');
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
