@@ -28,3 +28,11 @@ button{
 	font-size: large;
 	font-family: 'Times New Roman', Times, serif;
 }
+
+#message1 {
+	display: none;
+}
+
+#message2 {
+	display: none;
+}
