@@ -39,7 +39,7 @@ if (localStorage.getItem("counterValue")) {
 	}
 }
 
-// how to add step size
+// adding step size
 // increase and decrease functions
 
 function increaseFunc(step) {
