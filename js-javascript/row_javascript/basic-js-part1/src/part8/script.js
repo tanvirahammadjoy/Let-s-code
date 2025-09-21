@@ -141,4 +141,95 @@ function capitalizeFirstLetterOfEachWord(str) {
 		.join(" ");
 }
 
-console.log(capitalizeFirstLetterOfEachWord("hello world, how are you?")); // "Hello World, How Are You?"
+// console.log(capitalizeFirstLetterOfEachWord("hello world, how are you?")); // "Hello World, How Are You?"
+
+// 17. Object Key Frequency Counter
+// Given an array of words, count how many times each word appears (return as an object).
+// 👉 Example: ["apple", "banana", "apple"] → { apple: 2, banana: 1 }
+
+function countWordFrequencies(words) {
+	return words.reduce((acc, word) => {
+		acc[word] = (acc[word] || 0) + 1;
+		return acc;
+	}, {});
+}
+// console.log(countWordFrequencies(["apple", "banana", "apple", "orange", "banana", "apple"])); // { apple: 3, banana: 2, orange: 1 }
+
+// 18. Debounce Function
+// Implement a simple debounce function (wait a set time before running the callback again).
+
+function debounce(func, delay) {
+	let timeoutId;
+	return function(...args) {
+		if (timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		timeoutId = setTimeout(() => {
+			func.apply(this, args);
+		}, delay);
+	};
+}
+
+// Example usage:
+const log = () => console.log("Debounced!");
+const debouncedLog = debounce(log, 1000);
+
+// Calling the debounced function multiple times
+debouncedLog();
+debouncedLog();
+debouncedLog();
+// Only one "Debounced!" will be logged after 1 second.
+
+// 19. Countdown Timer (DOM)
+// Build a countdown timer that starts from 10 and updates the DOM every second until 0.
+
+function startCountdown() {
+	let countdown = 10;
+	const countdownElement = document.getElementById("countdown");
+	countdownElement.textContent = countdown;
+
+	const intervalId = setInterval(() => {
+		countdown--;
+		countdownElement.textContent = countdown;
+
+		if (countdown <= 0) {
+			clearInterval(intervalId);
+		}
+	}, 1000);
+}
+
+// Call startCountdown to initiate the timer
+// startCountdown();
+
+// 20. Dark Mode Toggle (DOM)
+// Add a button that switches your webpage between light mode and dark mode.
+
+function toggleDarkMode() {
+	const body = document.body;
+	body.classList.toggle("dark-mode");
+
+	const isDarkMode = body.classList.contains("dark-mode");
+	localStorage.setItem("dark-mode", isDarkMode);
+}
+
+const darkModeButton = document.createElement("button");
+darkModeButton.textContent = "Toggle Dark Mode";
+darkModeButton.addEventListener("click", toggleDarkMode);
+document.body.appendChild(darkModeButton);
+
+// Check for saved dark mode preference
+const isDarkMode = localStorage.getItem("dark-mode") === "true";
+if (isDarkMode) {
+	document.body.classList.add("dark-mode");
+}
+
+// CSS for dark mode (you can add this to your CSS file or a <style> tag)
+// const style = document.createElement("style");
+// style.textContent = `
+//   .dark-mode {
+// 	background-color: #121212;
+// 	color: #ffffff;
+// 	  }
+// `;
+// document.head.appendChild(style);
+// Note: Uncomment function calls to test individual functionalities.
